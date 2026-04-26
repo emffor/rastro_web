@@ -1,0 +1,6 @@
+export { AdminAnexoCategoriasPage } from './AdminAnexoCategoriasPage'
+export { AdminDashboardPage } from './AdminDashboardPage'
+export { AdminEmpresasPage } from './AdminEmpresasPage'
+export { AdminLogsPage } from './AdminLogsPage'
+export { AdminPermissoesPage } from './AdminPermissoesPage'
+export { AdminUsuariosPage } from './AdminUsuariosPage'
