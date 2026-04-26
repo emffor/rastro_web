@@ -2,12 +2,12 @@
 
 /* Rastro Florestal Design System */
 @theme {
-  /* Primary palette */
-  --color-primary: #374151;
-  --color-primary-hover: #1f2937;
-  --color-primary-light: #9ca3af;
-  --color-primary-dark: #111827;
-  --color-primary-muted: #f3f4f6;
+  /* Primary palette - cinza esverdeado */
+  --color-primary: #3f5548;
+  --color-primary-hover: #2f4036;
+  --color-primary-light: #8fa196;
+  --color-primary-dark: #1f2d25;
+  --color-primary-muted: #eef2ef;
 
   /* Backward compatibility aliases */
   --color-lv-green: var(--color-primary);
@@ -18,14 +18,14 @@
   --color-lv-mist: var(--color-primary-muted);
 
   /* Neutrals */
-  --color-apple-gray: #f9fafb;
-  --color-apple-dark: #111827;
-  --color-apple-secondary: #4b5563;
+  --color-apple-gray: #f7f9f7;
+  --color-apple-dark: #17211b;
+  --color-apple-secondary: #59685f;
 
   /* Semantic */
-  --color-apple-success: #6b7280;
-  --color-apple-warning: #6b7280;
-  --color-apple-danger: #6b7280;
+  --color-apple-success: #4f7f5f;
+  --color-apple-warning: #a36f2c;
+  --color-apple-danger: #9f3f3f;
 
   /* Font Family */
   --font-sans:
@@ -45,8 +45,8 @@ body {
   background:
     radial-gradient(
       circle at top,
-      color-mix(in srgb, var(--color-primary-light) 8%, transparent),
-      transparent 30%
+      color-mix(in srgb, var(--color-primary-light) 7%, transparent),
+      transparent 32%
     ),
     linear-gradient(180deg, #ffffff 0%, var(--color-apple-gray) 100%);
   color: var(--color-apple-dark);
@@ -98,14 +98,14 @@ textarea {
 }
 
 ::-webkit-scrollbar-track {
-  background: color-mix(in srgb, var(--color-primary-dark) 8%, transparent);
+  background: color-mix(in srgb, var(--color-primary-dark) 7%, transparent);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-primary) 48%, white);
-  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-primary) 42%, white);
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--color-primary) 66%, white);
+  background: color-mix(in srgb, var(--color-primary) 62%, white);
 }
