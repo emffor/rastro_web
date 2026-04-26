@@ -316,7 +316,7 @@ function formatControl(log: ActivityLog) {
 
 function renderMobileLog(log: ActivityLog) {
   return (
-    <div className="rounded-md border border-[#e3ede3] bg-white p-3 text-sm shadow-sm">
+    <div className="rounded-md border border-primary-muted bg-white p-3 text-sm shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="font-medium text-apple-dark">{formatLogEvent(log)}</p>
@@ -431,7 +431,7 @@ export function AdminLogsPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="border-b border-[#e3ede3] p-4">
+          <div className="border-b border-primary-muted p-4">
             <Input
               placeholder="Buscar por evento ou módulo..."
               value={search}

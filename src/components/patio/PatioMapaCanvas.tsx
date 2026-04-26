@@ -739,13 +739,13 @@ export function PatioMapaCanvas({
 
       {/* Toolbar contextual flutuante — aparece ao selecionar um item */}
       {editable && (selectedLoteObj || selectedAreaObj) && (
-        <div className="absolute top-12 left-2 z-10 flex items-center gap-1.5 bg-white rounded-lg shadow-xl border border-[#d7e5d8] px-2 py-1.5">
+        <div className="absolute top-12 left-2 z-10 flex items-center gap-1.5 bg-white rounded-lg shadow-xl border border-primary-muted px-2 py-1.5">
           {selectedLoteObj && editMode === "lotes" && (
             <>
               <span className="text-xs font-semibold text-apple-dark px-1">
                 {selectedLoteObj.nome}
               </span>
-              <div className="w-px h-5 bg-[#d7e5d8]" />
+              <div className="w-px h-5 bg-primary-muted" />
               <button
                 onClick={() => handleLoteDoubleClick(selectedLoteObj.id)}
                 className="p-1.5 text-primary hover:bg-primary-muted rounded-md transition-colors"
@@ -761,7 +761,7 @@ export function PatioMapaCanvas({
               <span className="text-xs font-semibold text-apple-dark px-1">
                 {selectedAreaObj.nome || "Área"}
               </span>
-              <div className="w-px h-5 bg-[#d7e5d8]" />
+              <div className="w-px h-5 bg-primary-muted" />
               {onAreaDoubleClick && (
                 <button
                   onClick={() => onAreaDoubleClick(selectedAreaObj)}
@@ -789,21 +789,21 @@ export function PatioMapaCanvas({
       <div className="absolute top-2 right-2 z-10 flex flex-col gap-1">
         <button
           onClick={handleZoomIn}
-          className="bg-white hover:bg-apple-gray p-2 rounded-lg shadow-md transition-colors border border-[#e3ede3]"
+          className="bg-white hover:bg-apple-gray p-2 rounded-lg shadow-md transition-colors border border-primary-muted"
           title="Aumentar zoom"
         >
           <ZoomIn className="h-4 w-4 text-apple-dark" />
         </button>
         <button
           onClick={handleZoomOut}
-          className="bg-white hover:bg-apple-gray p-2 rounded-lg shadow-md transition-colors border border-[#e3ede3]"
+          className="bg-white hover:bg-apple-gray p-2 rounded-lg shadow-md transition-colors border border-primary-muted"
           title="Diminuir zoom"
         >
           <ZoomOut className="h-4 w-4 text-apple-dark" />
         </button>
         <button
           onClick={handleResetView}
-          className="bg-white hover:bg-apple-gray p-2 rounded-lg shadow-md transition-colors border border-[#e3ede3]"
+          className="bg-white hover:bg-apple-gray p-2 rounded-lg shadow-md transition-colors border border-primary-muted"
           title="Resetar visualização"
         >
           <Maximize2 className="h-4 w-4 text-apple-dark" />
@@ -811,7 +811,7 @@ export function PatioMapaCanvas({
       </div>
 
       {/* Indicador de zoom */}
-      <div className="absolute bottom-2 right-2 z-10 bg-white/90 border border-[#d7e5d8] px-2 py-1 rounded-md text-xs font-mono text-apple-secondary shadow-sm">
+      <div className="absolute bottom-2 right-2 z-10 bg-white/90 border border-primary-muted px-2 py-1 rounded-md text-xs font-mono text-apple-secondary shadow-sm">
         {Math.round(scale * 100)}%
       </div>
 
@@ -879,7 +879,7 @@ export function PatioMapaCanvas({
 
       <div
         ref={containerRef}
-        className="border border-[#d7e5d8] rounded-xl overflow-hidden bg-apple-gray"
+        className="border border-primary-muted rounded-xl overflow-hidden bg-apple-gray"
         style={{
           width: containerWidth,
           height: containerHeight,

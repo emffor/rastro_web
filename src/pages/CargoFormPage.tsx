@@ -430,7 +430,7 @@ export function CargoFormPage() {
                     onChange={handleChange}
                     rows={4}
                     disabled={!podeEditar}
-                    className={`w-full px-4 py-2.5 bg-white border border-[#d7e5d8] rounded-lg resize-none focus:border-primary focus:ring-1 focus:ring-primary outline-none ${!podeEditar ? "bg-[#e3ede3] cursor-not-allowed" : ""}`}
+                    className={`w-full px-4 py-2.5 bg-white border border-primary-muted rounded-lg resize-none focus:border-primary focus:ring-1 focus:ring-primary outline-none ${!podeEditar ? "bg-primary-muted cursor-not-allowed" : ""}`}
                     placeholder="Descrição do cargo..."
                   />
                 </div>
@@ -445,7 +445,7 @@ export function CargoFormPage() {
                 </h3>
 
                 {!podeEditar && (
-                  <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-sm">
+                  <div className="mb-4 p-3 bg-apple-warning/10 border border-apple-warning/20 rounded-lg text-apple-warning text-sm">
                     Você não tem permissão para editar cargos. Os campos estão
                     desabilitados.
                   </div>
@@ -464,7 +464,7 @@ export function CargoFormPage() {
                       return (
                         <div
                           key={grupo}
-                          className="border border-[#d7e5d8] rounded-lg overflow-hidden"
+                          className="border border-primary-muted rounded-lg overflow-hidden"
                         >
                           {/* Header do Grupo */}
                           <button
@@ -476,7 +476,7 @@ export function CargoFormPage() {
                                 ? "bg-primary-muted text-primary-dark"
                                 : algumaSelecionada
                                   ? "bg-primary-muted/50 text-primary"
-                                  : "bg-apple-gray text-apple-dark hover:bg-[#e3ede3]"
+                                  : "bg-apple-gray text-apple-dark hover:bg-primary-muted"
                             }`}
                           >
                             <span className="font-medium text-sm">
@@ -488,7 +488,7 @@ export function CargoFormPage() {
                                   ? "bg-primary border-primary"
                                   : algumaSelecionada
                                     ? "bg-primary-muted border-primary"
-                                    : "border-[#c5d8c7]"
+                                    : "border-primary"
                               }`}
                             >
                               {(todasSelecionadas || algumaSelecionada) && (
@@ -520,7 +520,7 @@ export function CargoFormPage() {
                                       podeEditar && togglePermissao(perm.nome)
                                     }
                                     disabled={!podeEditar}
-                                    className="w-4 h-4 rounded border-[#c5d8c7] text-primary focus:ring-primary disabled:cursor-not-allowed"
+                                    className="w-4 h-4 rounded border-primary text-primary focus:ring-primary disabled:cursor-not-allowed"
                                   />
                                   <span className="text-sm text-apple-dark">
                                     {perm.descricao}

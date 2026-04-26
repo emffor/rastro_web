@@ -63,7 +63,7 @@ export function DataTable<T>({
     <div className={cn("overflow-x-auto overscroll-x-contain", className)}>
       <table className="w-full min-w-max border-separate border-spacing-0">
         <thead>
-          <tr className="border-b border-[#e3ede3]">
+          <tr className="border-b border-primary-muted">
             {columns.map((column) => (
               <th
                 key={String(column.key)}
@@ -117,7 +117,7 @@ export function DataTable<T>({
               <tr
                 key={keyExtractor(item)}
                 className={cn(
-                  "border-b border-[#e3ede3]/50 transition-colors",
+                  "border-b border-primary-muted/50 transition-colors",
                   onRowClick && "cursor-pointer hover:bg-apple-gray/40",
                 )}
                 onClick={onRowClick ? () => onRowClick(item) : undefined}

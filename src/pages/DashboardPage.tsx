@@ -38,7 +38,7 @@ function StatCard({
 }: StatCardProps) {
   return (
     <Card
-      className={`h-full border-[#e3ede3] shadow-none transition-colors duration-200 ${onClick ? "cursor-pointer hover:border-[#c5d8c7]" : ""}`}
+      className={`h-full border-primary-muted shadow-none transition-colors duration-200 ${onClick ? "cursor-pointer hover:border-primary" : ""}`}
       onClick={onClick}
     >
       <CardContent className="py-1">
@@ -52,13 +52,13 @@ function StatCard({
               <p className="mt-2 text-xs text-apple-secondary">{description}</p>
             )}
           </div>
-          <div className="rounded-lg border border-[#e3ede3] bg-apple-gray p-2.5">
+          <div className="rounded-lg border border-primary-muted bg-apple-gray p-2.5">
             <Icon className="h-5 w-5 text-apple-secondary" />
           </div>
         </div>
 
         {metas && metas.length > 0 && (
-          <dl className="mt-4 border-t border-[#e3ede3] pt-3 space-y-1.5">
+          <dl className="mt-4 border-t border-primary-muted pt-3 space-y-1.5">
             {metas.map((meta) => (
               <div
                 key={meta.label}
@@ -85,14 +85,14 @@ const TIPO_LABELS: Record<string, { label: string; color: string }> = {
   ENTRADA: { label: "Entrada", color: "text-primary bg-primary-muted" },
   TRANSFERENCIA: { label: "Transferência", color: "text-primary bg-primary-muted" },
   BAIXA: { label: "Baixa", color: "text-apple-danger bg-apple-danger/10" },
-  AJUSTE: { label: "Ajuste", color: "text-amber-600 bg-amber-50" },
+  AJUSTE: { label: "Ajuste", color: "text-apple-warning bg-apple-warning/10" },
 };
 
 const TIPO_TEXT_COLORS: Record<string, string> = {
   ENTRADA: "text-primary",
   TRANSFERENCIA: "text-primary",
   BAIXA: "text-apple-danger",
-  AJUSTE: "text-amber-600",
+  AJUSTE: "text-apple-warning",
 };
 
 function formatDate(dateStr: string): string {
@@ -284,7 +284,7 @@ export function DashboardPage() {
       />
 
       <AnimatedSection delay={0}>
-        <Card className="border-[#e3ede3] shadow-none">
+        <Card className="border-primary-muted shadow-none">
           <CardContent className="py-1">
             <div className="flex flex-col gap-5">
               <div className="max-w-3xl">
@@ -335,7 +335,7 @@ export function DashboardPage() {
                   {formatarPercentual(ocupacaoCapacidadePct)}
                 </span>
               </div>
-              <div className="mt-2 h-1.5 rounded-full bg-[#e3ede3]">
+              <div className="mt-2 h-1.5 rounded-full bg-primary-muted">
                 <div
                   className="h-full rounded-full bg-primary transition-all duration-300"
                   style={{ width: `${ocupacaoCapacidadePct.toFixed(1)}%` }}
@@ -431,7 +431,7 @@ export function DashboardPage() {
       </div>
 
       <AnimatedSection delay={0.35}>
-        <Card className="border-[#e3ede3] shadow-none">
+        <Card className="border-primary-muted shadow-none">
           <CardContent>
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -469,7 +469,7 @@ export function DashboardPage() {
                     return (
                       <div
                         key={mov.id}
-                        className="rounded-lg border border-[#e3ede3] bg-white p-3"
+                        className="rounded-lg border border-primary-muted bg-white p-3"
                       >
                         <div className="flex items-center justify-between gap-3">
                           <span

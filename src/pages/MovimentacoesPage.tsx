@@ -122,7 +122,7 @@ function renderizarLoteComPatio(
     if (!label) return <span className="text-apple-secondary">—</span>;
     return (
       <span
-        className="inline-flex max-w-full items-center truncate rounded border border-transparent bg-[#e3ede3] px-2 py-0.5 text-[11px] font-medium text-apple-secondary"
+        className="inline-flex max-w-full items-center truncate rounded border border-transparent bg-primary-muted px-2 py-0.5 text-[11px] font-medium text-apple-secondary"
         title={titulo}
       >
         {label}
@@ -132,7 +132,7 @@ function renderizarLoteComPatio(
 
   return (
     <span
-      className="inline-flex max-w-full items-center truncate rounded border border-transparent bg-[#e3ede3] px-2 py-0.5 text-[11px] font-medium text-apple-dark"
+      className="inline-flex max-w-full items-center truncate rounded border border-transparent bg-primary-muted px-2 py-0.5 text-[11px] font-medium text-apple-dark"
       title={titulo}
     >
       {nomeLote}
@@ -459,7 +459,7 @@ export function MovimentacoesPage() {
         className: "w-[124px]",
         render: (m: Movimentacao) => {
           const cls =
-            TIPO_BADGE_CLASS[m.tipo] || "text-apple-secondary bg-[#e3ede3]";
+            TIPO_BADGE_CLASS[m.tipo] || "text-apple-secondary bg-primary-muted";
           const label = TIPO_CONFIG[m.tipo]?.label || m.tipo;
           return (
             <span
@@ -524,7 +524,7 @@ export function MovimentacoesPage() {
               className={`inline-flex items-center rounded border border-transparent px-2 py-0.5 text-[11px] font-medium ${
                 possuiAnexos
                   ? "bg-primary-muted text-primary-dark"
-                  : "bg-[#e3ede3] text-apple-secondary"
+                  : "bg-primary-muted text-apple-secondary"
               }`}
               title={
                 possuiAnexos ? "Movimentação com anexos PDF" : "Sem anexos PDF"
@@ -642,7 +642,7 @@ export function MovimentacoesPage() {
       />
 
       <AnimatedSection>
-        <Card className="border-[#e3ede3] shadow-none">
+        <Card className="border-primary-muted shadow-none">
           <div className="p-4 sm:p-5">
             <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
               <div>
@@ -687,8 +687,8 @@ export function MovimentacoesPage() {
       </AnimatedSection>
 
       <AnimatedSection delay={0.05}>
-        <Card className="overflow-hidden border-[#e3ede3] shadow-none">
-          <div className="border-b border-[#e3ede3] p-4 sm:p-5">
+        <Card className="overflow-hidden border-primary-muted shadow-none">
+          <div className="border-b border-primary-muted p-4 sm:p-5">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="w-full lg:max-w-xl">
                 <Input
@@ -721,7 +721,7 @@ export function MovimentacoesPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-11 justify-center border border-[#d7e5d8] text-apple-secondary hover:bg-apple-gray"
+                    className="h-11 justify-center border border-primary-muted text-apple-secondary hover:bg-apple-gray"
                     onClick={limparFiltros}
                   >
                     <FilterX className="h-4 w-4" /> Limpar filtros
@@ -736,7 +736,7 @@ export function MovimentacoesPage() {
                 const badgeClass =
                   opcao.value && TIPO_BADGE_CLASS[opcao.value]
                     ? TIPO_BADGE_CLASS[opcao.value]
-                    : "text-apple-secondary bg-[#e3ede3]";
+                    : "text-apple-secondary bg-primary-muted";
 
                 const quantity = opcao.value
                   ? resumo.quantidade_por_tipo?.[opcao.value] || 0
@@ -752,8 +752,8 @@ export function MovimentacoesPage() {
                     }}
                     className={
                       ativo
-                        ? "rounded-lg border border-[#c5d8c7] bg-apple-gray px-3 py-1.5 text-sm font-medium text-apple-dark"
-                        : "rounded-lg border border-[#d7e5d8] bg-white px-3 py-1.5 text-sm font-medium text-apple-secondary hover:bg-apple-gray"
+                        ? "rounded-lg border border-primary bg-apple-gray px-3 py-1.5 text-sm font-medium text-apple-dark"
+                        : "rounded-lg border border-primary-muted bg-white px-3 py-1.5 text-sm font-medium text-apple-secondary hover:bg-apple-gray"
                     }
                   >
                     <span className="inline-flex items-center gap-2">
@@ -808,7 +808,7 @@ export function MovimentacoesPage() {
             />
           </div>
 
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.

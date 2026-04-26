@@ -1622,7 +1622,7 @@ export function MovimentacaoNovaSaidaPage() {
             return (
               <div
                 key={item.id}
-                className="rounded-2xl border border-[#d7e5d8] bg-apple-gray/50 p-5"
+                className="rounded-2xl border border-primary-muted bg-apple-gray/50 p-5"
               >
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
@@ -1801,7 +1801,7 @@ export function MovimentacaoNovaSaidaPage() {
                               {produtosEspecie.map((produto) => (
                                 <div
                                   key={produto.produto_dimensionado_id}
-                                  className="grid grid-cols-12 items-center gap-2 border-t border-[#e3ede3] py-1.5 text-xs"
+                                  className="grid grid-cols-12 items-center gap-2 border-t border-primary-muted py-1.5 text-xs"
                                 >
                                   <div
                                     className="col-span-5 truncate text-apple-dark"
@@ -1827,7 +1827,7 @@ export function MovimentacaoNovaSaidaPage() {
                                 </div>
                               ))}
 
-                              <div className="mt-2 border-t border-[#d7e5d8] pt-2">
+                              <div className="mt-2 border-t border-primary-muted pt-2">
                                 <div className="grid grid-cols-12 gap-2 text-xs font-semibold text-primary-dark">
                                   <div className="col-span-5">Total</div>
                                   <div className="col-span-2 text-right font-mono">
@@ -2234,7 +2234,7 @@ export function MovimentacaoNovaSaidaPage() {
                                   Math.abs(diferencaVolumePecas) <=
                                   TOLERANCIA_VOLUME
                                     ? "text-primary-dark"
-                                    : "text-amber-700"
+                                    : "text-apple-warning"
                                 }
                               >
                                 {statusResumoPecas}
@@ -2726,7 +2726,7 @@ export function MovimentacaoNovaSaidaPage() {
                                                     event.target.value,
                                                   )
                                                 }
-                                                className="col-span-1 h-8 rounded border border-[#d7e5d8] px-2 text-right font-mono"
+                                                className="col-span-1 h-8 rounded border border-primary-muted px-2 text-right font-mono"
                                                 placeholder="0"
                                               />
                                               <div
@@ -2802,7 +2802,7 @@ export function MovimentacaoNovaSaidaPage() {
                     {item.notas_fiscais.map((nota) => (
                       <div
                         key={nota.id}
-                        className="space-y-3 rounded-xl border border-[#e3ede3] bg-white p-4"
+                        className="space-y-3 rounded-xl border border-primary-muted bg-white p-4"
                       >
                         <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
                           <div className="md:col-span-4">
@@ -2905,7 +2905,7 @@ export function MovimentacaoNovaSaidaPage() {
             );
           })}
 
-          <div className="flex flex-col-reverse gap-3 border-t border-[#e3ede3] pt-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col-reverse gap-3 border-t border-primary-muted pt-5 sm:flex-row sm:items-center sm:justify-between">
             <Button variant="secondary" onClick={adicionarItem}>
               <Plus className="h-4 w-4" /> Adicionar Item
             </Button>

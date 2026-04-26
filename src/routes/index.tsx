@@ -55,7 +55,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
     if (location.pathname === "/dashboard") {
       return (
         <div className="min-h-screen bg-apple-gray flex items-center justify-center px-4">
-          <div className="rounded-xl border border-[#e3ede3] bg-white p-6 text-center shadow-sm">
+          <div className="rounded-xl border border-primary-muted bg-white p-6 text-center shadow-sm">
             <h1 className="text-lg font-semibold text-apple-dark">
               Sem permissão para acessar esta página.
             </h1>

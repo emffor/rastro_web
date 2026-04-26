@@ -102,7 +102,7 @@ export function CargosPage() {
       <button
         onClick={() => navigate(`/cargos/${c.id}`)}
         disabled={!podeEditar}
-        className="rounded p-1 text-apple-secondary hover:bg-[#e3ede3] hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
+        className="rounded p-1 text-apple-secondary hover:bg-primary-muted hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
         title={podeEditar ? "Editar" : "Sem permissão para editar"}
       >
         <Pencil className="h-3.5 w-3.5" />
@@ -146,7 +146,7 @@ export function CargosPage() {
 
   // Card view para mobile
   const mobileCardRender = (c: Cargo) => (
-    <div className="bg-white border border-[#e3ede3] rounded-xl p-4 space-y-3">
+    <div className="bg-white border border-primary-muted rounded-xl p-4 space-y-3">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <h3 className="font-medium text-apple-dark">{c.nome}</h3>
@@ -161,7 +161,7 @@ export function CargosPage() {
         </span>
       </div>
 
-      <div className="flex justify-end pt-2 border-t border-[#e3ede3]">
+      <div className="flex justify-end pt-2 border-t border-primary-muted">
         {renderActions(c)}
       </div>
     </div>
@@ -185,7 +185,7 @@ export function CargosPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="p-4 border-b border-[#e3ede3]">
+          <div className="p-4 border-b border-primary-muted">
             <Input
               placeholder="Buscar cargo..."
               value={search}
@@ -201,7 +201,7 @@ export function CargosPage() {
             emptyMessage="Nenhum cargo encontrado"
             mobileCardRender={mobileCardRender}
           />
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.

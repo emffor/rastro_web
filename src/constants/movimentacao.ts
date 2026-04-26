@@ -12,7 +12,7 @@ export const TIPO_BADGE_CLASS: Record<string, string> = {
   ENTRADA: "text-primary-dark bg-primary-muted",
   TRANSFERENCIA: "text-primary-dark bg-primary-muted",
   BAIXA: "text-apple-danger bg-apple-danger/10",
-  AJUSTE: "text-amber-600 bg-amber-50",
+  AJUSTE: "text-apple-warning bg-apple-warning/10",
 };
 
 export const TIPOS_MOVIMENTACAO = [

@@ -196,7 +196,7 @@ export function EmpresaConfigPage() {
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-4">Logo da Empresa</h3>
               <div className="flex flex-col items-center">
-                <div className="w-40 h-40 rounded-lg border-2 border-dashed border-[#c5d8c7] flex items-center justify-center overflow-hidden bg-apple-gray mb-4">
+                <div className="w-40 h-40 rounded-lg border-2 border-dashed border-primary flex items-center justify-center overflow-hidden bg-apple-gray mb-4">
                   {empresa?.logo_url ? (
                     <img
                       src={empresa.logo_url}
@@ -217,7 +217,7 @@ export function EmpresaConfigPage() {
                       className="hidden"
                       disabled={isUploading || !podeGerenciarConfig}
                     />
-                    <span className="inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-lg bg-[#e3ede3] text-apple-dark hover:bg-[#d7e5d8] transition-colors cursor-pointer">
+                    <span className="inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-lg bg-primary-muted text-apple-dark hover:bg-primary-muted transition-colors cursor-pointer">
                       <Upload className="h-4 w-4 mr-1" />
                       {isUploading ? "Enviando..." : "Upload"}
                     </span>

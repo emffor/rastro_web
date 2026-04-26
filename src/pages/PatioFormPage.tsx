@@ -236,7 +236,7 @@ export function PatioFormPage() {
                   onChange={handleChange}
                   placeholder="Descrição opcional do pátio..."
                   rows={3}
-                  className="w-full px-4 py-2.5 border border-[#d7e5d8] rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="w-full px-4 py-2.5 border border-primary-muted rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary"
                 />
               </div>
 
@@ -321,7 +321,7 @@ export function PatioFormPage() {
                           name="cor_fundo"
                           value={formData.cor_fundo}
                           onChange={handleChange}
-                          className="h-10 w-20 rounded border border-[#c5d8c7] cursor-pointer"
+                          className="h-10 w-20 rounded border border-primary cursor-pointer"
                         />
                         <Input
                           name="cor_fundo"
@@ -332,7 +332,7 @@ export function PatioFormPage() {
                           className="flex-1 min-w-[160px]"
                         />
                         <div
-                          className="w-10 h-10 rounded-lg border-2 border-[#c5d8c7]"
+                          className="w-10 h-10 rounded-lg border-2 border-primary"
                           style={{ backgroundColor: formData.cor_fundo }}
                         />
                       </div>
@@ -348,7 +348,7 @@ export function PatioFormPage() {
                     name="ativo"
                     checked={formData.ativo}
                     onChange={handleChange}
-                    className="w-5 h-5 rounded border-[#c5d8c7] text-primary focus:ring-primary"
+                    className="w-5 h-5 rounded border-primary text-primary focus:ring-primary"
                   />
                   <div>
                     <p className="text-sm font-medium text-apple-dark">

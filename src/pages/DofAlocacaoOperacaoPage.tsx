@@ -417,7 +417,7 @@ export function DofAlocacaoOperacaoPage() {
                       Não há linhas de peças disponíveis nesta alocação.
                     </p>
                   ) : (
-                    <div className="max-h-72 overflow-y-auto rounded-lg border border-[#d7e5d8] p-2 space-y-1">
+                    <div className="max-h-72 overflow-y-auto rounded-lg border border-primary-muted p-2 space-y-1">
                       {produtosResumo.map((produto) => (
                         <div
                           key={`${alocacao.id}-${produto.produto_dimensionado_id || produto.produto_nome}`}
@@ -447,7 +447,7 @@ export function DofAlocacaoOperacaoPage() {
                                 event.target.value,
                               );
                             }}
-                            className="col-span-2 h-8 rounded border border-[#d7e5d8] px-2 text-right font-mono"
+                            className="col-span-2 h-8 rounded border border-primary-muted px-2 text-right font-mono"
                             placeholder="0"
                             disabled={!produto.produto_dimensionado_id}
                           />
@@ -480,7 +480,7 @@ export function DofAlocacaoOperacaoPage() {
                     type="text"
                     value={volume}
                     onChange={(e) => setVolume(e.target.value)}
-                    className="h-10 w-full rounded-lg border border-[#d7e5d8] px-3 text-sm"
+                    className="h-10 w-full rounded-lg border border-primary-muted px-3 text-sm"
                     placeholder="Volume m³"
                   />
                 </div>
@@ -494,7 +494,7 @@ export function DofAlocacaoOperacaoPage() {
                   type="text"
                   value={observacao}
                   onChange={(e) => setObservacao(e.target.value)}
-                  className="h-10 w-full rounded-lg border border-[#d7e5d8] px-3 text-sm"
+                  className="h-10 w-full rounded-lg border border-primary-muted px-3 text-sm"
                   placeholder="Observação"
                 />
               </div>

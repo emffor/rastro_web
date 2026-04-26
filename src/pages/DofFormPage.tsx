@@ -806,7 +806,7 @@ export function DofFormPage() {
         <label className="block text-sm font-medium text-apple-dark">
           {labelCompleto}
         </label>
-        <div className="min-h-30 space-y-3 rounded-lg border border-[#d7e5d8] bg-white p-4 shadow-sm">
+        <div className="min-h-30 space-y-3 rounded-lg border border-primary-muted bg-white p-4 shadow-sm">
           <button
             type="button"
             onClick={() => abrirAnexoEntrada(anexoExistente)}
@@ -883,7 +883,7 @@ export function DofFormPage() {
           )}
 
           {acao.modo !== "nenhum" && !acao.confirmado && (
-            <div className="space-y-3 rounded-lg border border-[#e3ede3] bg-[#fbfdfb] p-3">
+            <div className="space-y-3 rounded-lg border border-primary-muted bg-apple-gray p-3">
               <textarea
                 value={acao.observacao}
                 onChange={(e) =>
@@ -892,7 +892,7 @@ export function DofFormPage() {
                 placeholder={`Informe o motivo para ${
                   acao.modo === "substituir" ? "substituir" : "remover"
                 } o anexo.`}
-                className="min-h-24 w-full rounded-lg border border-[#d7e5d8] bg-white px-3 py-2 text-sm text-apple-dark shadow-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                className="min-h-24 w-full rounded-lg border border-primary-muted bg-white px-3 py-2 text-sm text-apple-dark shadow-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
 
               {acao.modo === "substituir" && (
@@ -1050,14 +1050,14 @@ export function DofFormPage() {
                 </div>
 
                 {possuiAlocacoesEmLotes && (
-                  <p className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+                  <p className="mb-4 rounded-lg border border-apple-warning/20 bg-apple-warning/10 px-3 py-2 text-sm text-apple-warning">
                     Este DOF já possui alocações em lotes. Somente os anexos
                     podem ser gerenciados nesta tela.
                   </p>
                 )}
 
                 {itens.length === 0 ? (
-                  <p className="text-sm text-apple-secondary text-center py-6 bg-apple-gray rounded-lg border border-dashed border-[#d7e5d8]">
+                  <p className="text-sm text-apple-secondary text-center py-6 bg-apple-gray rounded-lg border border-dashed border-primary-muted">
                     Nenhum item adicionado. Adicione ao menos um item para
                     calcular automaticamente o volume total do DOF.
                   </p>
@@ -1066,7 +1066,7 @@ export function DofFormPage() {
                     {itens.map((item, index) => (
                       <div
                         key={index}
-                        className="p-4 bg-apple-gray rounded-lg border border-[#e3ede3]"
+                        className="p-4 bg-apple-gray rounded-lg border border-primary-muted"
                       >
                         <div className="grid grid-cols-1 gap-3 items-start sm:grid-cols-[1fr_120px_48px]">
                           <div>
@@ -1105,7 +1105,7 @@ export function DofFormPage() {
                                 )
                               }
                               placeholder="0.0000"
-                              className={`w-full h-10 px-3 border rounded-lg text-sm bg-white ${errors[`item_${index}_quantidade`] ? "border-apple-danger" : "border-[#d7e5d8]"}`}
+                              className={`w-full h-10 px-3 border rounded-lg text-sm bg-white ${errors[`item_${index}_quantidade`] ? "border-apple-danger" : "border-primary-muted"}`}
                               disabled={possuiAlocacoesEmLotes}
                             />
                           </div>
@@ -1167,7 +1167,7 @@ export function DofFormPage() {
       >
         {anexoEmVisualizacao?.url && (
           <div className="flex h-[calc(100dvh-180px)] min-h-[520px] flex-col">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e3ede3] p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-primary-muted p-4">
               <div className="min-w-0">
                 <p className="text-xs uppercase tracking-wide text-apple-secondary">
                   Leitor de{" "}
@@ -1183,7 +1183,7 @@ export function DofFormPage() {
               <a
                 href={anexoEmVisualizacao.url}
                 download={obterNomeAnexoEntrada(anexoEmVisualizacao)}
-                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-[#d9e7da] bg-white px-4 py-2 text-sm font-medium text-apple-dark transition-all duration-200 hover:bg-primary-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-primary-muted bg-white px-4 py-2 text-sm font-medium text-apple-dark transition-all duration-200 hover:bg-primary-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 <Download className="h-4 w-4" />
                 Download
@@ -1192,7 +1192,7 @@ export function DofFormPage() {
 
             <div className="flex-1 bg-[#f8fbf8] p-4">
               {ehImagemAnexo(anexoEmVisualizacao) ? (
-                <div className="flex h-full items-center justify-center rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+                <div className="flex h-full items-center justify-center rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
                   <img
                     src={anexoEmVisualizacao.url}
                     alt={obterNomeAnexoEntrada(anexoEmVisualizacao)}
@@ -1203,7 +1203,7 @@ export function DofFormPage() {
                 <iframe
                   src={anexoEmVisualizacao.url}
                   title={obterNomeAnexoEntrada(anexoEmVisualizacao)}
-                  className="h-full w-full rounded-2xl border border-[#e3ede3] bg-white shadow-sm"
+                  className="h-full w-full rounded-2xl border border-primary-muted bg-white shadow-sm"
                 />
               )}
             </div>

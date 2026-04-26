@@ -95,7 +95,7 @@ export function Sidebar({
   const corGauge = (percentual: number): string => {
     if (percentual >= 100) return "#ef4444";
     if (percentual >= 80) return "#f59e0b";
-    return "#2d6a2e";
+    return "var(--color-primary)";
   };
 
   const renderCircularGauge = (
@@ -120,7 +120,7 @@ export function Sidebar({
               cy={size / 2}
               r={radius}
               fill="none"
-              stroke="#edf4ed"
+              stroke="var(--color-primary-muted)"
               strokeWidth={strokeWidth}
             />
             <circle
@@ -226,7 +226,7 @@ export function Sidebar({
         )}
         {isCollapsed && group.title && (
           <div className="mx-2 my-1">
-            <div className="h-px bg-[#e3ede3]" />
+            <div className="h-px bg-primary-muted" />
           </div>
         )}
         <div
@@ -252,7 +252,7 @@ export function Sidebar({
 
       <aside
         className={cn(
-          "fixed top-16 bottom-0 bg-white border-r border-[#e3ede3] transition-all duration-300 z-50",
+          "fixed top-16 bottom-0 bg-white border-r border-primary-muted transition-all duration-300 z-50",
           "lg:left-0",
           isCollapsed ? "lg:w-15" : "lg:w-60",
           isOpen ? "left-0 w-60" : "-left-60 w-60 lg:left-0",
@@ -261,7 +261,7 @@ export function Sidebar({
         <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
         <div className="flex flex-col h-full">
-          <div className="lg:hidden flex justify-end p-2 border-b border-[#e3ede3]">
+          <div className="lg:hidden flex justify-end p-2 border-b border-primary-muted">
             <button
               onClick={onClose}
               className="p-1.5 rounded-lg text-apple-secondary hover:text-apple-dark hover:bg-primary-muted transition-colors"
@@ -272,11 +272,11 @@ export function Sidebar({
 
           {!isCollapsed && (!user?.is_master || estaControlandoEmpresa) && (
             <div
-              className="border-b border-[#e3ede3] px-2 py-2.5 cursor-pointer hover:bg-apple-gray/50 rounded-lg transition-colors"
+              className="border-b border-primary-muted px-2 py-2.5 cursor-pointer hover:bg-apple-gray/50 rounded-lg transition-colors"
               onClick={() => navigate("/manutencao")}
             >
               {isLoadingLimite ? (
-                <div className="flex items-center justify-center rounded-lg border border-[#dfeadf] bg-[#f6fbf5] py-5">
+                <div className="flex items-center justify-center rounded-lg border border-primary-muted bg-primary-muted/40 py-5">
                   <Spinner size="sm" />
                 </div>
               ) : erroLimite ? (
@@ -289,7 +289,7 @@ export function Sidebar({
                   </div>
                 </div>
               ) : (
-                <div className="rounded-lg border border-[#dfeadf] bg-[#f6fbf5] px-2.5 pt-2 pb-2 shadow-sm">
+                <div className="rounded-lg border border-primary-muted bg-primary-muted/40 px-2.5 pt-2 pb-2 shadow-sm">
                   <div className="mb-2 flex items-center justify-between">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-apple-secondary">
                       Cota mensal
@@ -309,7 +309,7 @@ export function Sidebar({
                       limiteAnexos.uploads_nf_usados,
                       limiteAnexos.uploads_nf_percentual,
                     )}
-                    <div className="h-8 w-px bg-[#e3ede3]" />
+                    <div className="h-8 w-px bg-primary-muted" />
                     {renderCircularGauge(
                       "DOF",
                       limiteAnexos.uploads_dof_usados,
@@ -317,7 +317,7 @@ export function Sidebar({
                     )}
                   </div>
 
-                  <div className="mt-2 flex items-center justify-center gap-1.5 border-t border-[#e3ede3] pt-2">
+                  <div className="mt-2 flex items-center justify-center gap-1.5 border-t border-primary-muted pt-2">
                     <Calendar className="h-3 w-3 text-apple-secondary/50" />
                     <span className="text-[10px] text-apple-secondary">
                       Renova em{" "}
@@ -335,7 +335,7 @@ export function Sidebar({
             {sidebarGroups.map((group, index) => renderGroup(group, index))}
           </nav>
 
-          <div className="hidden lg:block p-2 border-t border-[#e3ede3]">
+          <div className="hidden lg:block p-2 border-t border-primary-muted">
             <button
               onClick={onToggleCollapse}
               className="flex items-center justify-center w-full p-2 rounded-lg text-apple-secondary hover:text-apple-dark hover:bg-apple-gray transition-colors"

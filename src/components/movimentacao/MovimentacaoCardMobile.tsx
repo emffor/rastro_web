@@ -19,7 +19,7 @@ export function MovimentacaoCardMobile({
   formatarResumoProdutosSaida,
   formatarLoteComPatio,
 }: Props) {
-  const cls = TIPO_BADGE_CLASS[m.tipo] || "text-apple-secondary bg-[#e3ede3]";
+  const cls = TIPO_BADGE_CLASS[m.tipo] || "text-apple-secondary bg-primary-muted";
   const label = TIPO_CONFIG[m.tipo]?.label || m.tipo;
   const nfs =
     m.saida_operacao_item?.notas_fiscais
@@ -28,7 +28,7 @@ export function MovimentacaoCardMobile({
   const resumoProdutos = formatarResumoProdutosSaida(m);
 
   return (
-    <div className="rounded-xl border border-[#e3ede3] bg-white p-3 shadow-sm">
+    <div className="rounded-xl border border-primary-muted bg-white p-3 shadow-sm">
       <div className="flex items-start justify-between gap-2">
         <span
           className={`inline-flex items-center rounded border border-transparent px-2 py-0.5 text-[11px] font-medium ${cls}`}

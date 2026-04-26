@@ -254,7 +254,7 @@ export function DofsPage() {
           return (
             <div className="flex w-40 items-center gap-2">
               <div className="flex-1">
-                <div className="h-1 w-full rounded-full bg-[#e3ede3]">
+                <div className="h-1 w-full rounded-full bg-primary-muted">
                   <div
                     className={`h-full rounded-full ${pct >= 100 ? "bg-primary" : pct > 0 ? "bg-primary" : "bg-red-400"}`}
                     style={{ width: `${Math.min(pct, 100)}%` }}
@@ -263,7 +263,7 @@ export function DofsPage() {
               </div>
               <span className="shrink-0 font-mono text-xs text-apple-secondary">
                 {formatarNumero(alocado, 4)}
-                <span className="text-gray-300">/</span>
+                <span className="text-primary-muted">/</span>
                 {formatarNumero(_total, 4)}
               </span>
             </div>
@@ -276,7 +276,7 @@ export function DofsPage() {
         render: (d: Dof) => {
           const info = STATUS_MAP[d.status] || {
             label: d.status,
-            cls: "bg-[#e3ede3] text-apple-secondary border-[#d7e5d8]",
+            cls: "bg-primary-muted text-apple-secondary border-primary-muted",
           };
           return (
             <span
@@ -298,7 +298,7 @@ export function DofsPage() {
               className={`rounded px-2.5 py-1 text-xs font-medium transition-colors ${
                 Number(d.volume_saldo_m3) > 0
                   ? "bg-primary text-white hover:bg-primary/90"
-                  : "border border-[#d7e5d8] text-apple-secondary hover:bg-apple-gray"
+                  : "border border-primary-muted text-apple-secondary hover:bg-apple-gray"
               }`}
               title="Abrir tela de alocação"
             >
@@ -307,7 +307,7 @@ export function DofsPage() {
             <button
               onClick={() => navigate(`/dofs/${d.id}`)}
               disabled={!podeEditar}
-              className="rounded p-1 text-apple-secondary hover:bg-[#e3ede3] hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded p-1 text-apple-secondary hover:bg-primary-muted hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
               title={podeEditar ? "Editar" : "Sem permissão para editar"}
             >
               <Pencil className="h-3.5 w-3.5" />
@@ -361,7 +361,7 @@ export function DofsPage() {
         }
       />
       <AnimatedSection>
-        <div className="mb-6 flex flex-wrap items-center gap-6 rounded-xl border border-[#e3ede3] bg-white px-5 py-4">
+        <div className="mb-6 flex flex-wrap items-center gap-6 rounded-xl border border-primary-muted bg-white px-5 py-4">
           <div className="flex w-full sm:w-auto sm:min-w-40 flex-col gap-0.5">
             <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
               Total de DOFs
@@ -370,7 +370,7 @@ export function DofsPage() {
               {resumoGerencial.total_dofs}
             </p>
           </div>
-          <div className="hidden sm:block h-8 w-px bg-[#e3ede3]" />
+          <div className="hidden sm:block h-8 w-px bg-primary-muted" />
           <div className="flex w-full sm:w-auto sm:min-w-40 flex-col gap-0.5">
             <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
               Volume Total
@@ -379,7 +379,7 @@ export function DofsPage() {
               {formatarVolume(resumoGerencial.volume_total_m3)}
             </p>
           </div>
-          <div className="hidden sm:block h-8 w-px bg-[#e3ede3]" />
+          <div className="hidden sm:block h-8 w-px bg-primary-muted" />
           <div className="flex w-full sm:w-auto sm:min-w-40 flex-col gap-0.5">
             <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
               Volume Alocado
@@ -388,7 +388,7 @@ export function DofsPage() {
               {formatarVolume(resumoGerencial.volume_alocado_m3)}
             </p>
           </div>
-          <div className="hidden sm:block h-8 w-px bg-[#e3ede3]" />
+          <div className="hidden sm:block h-8 w-px bg-primary-muted" />
           <div className="flex w-full sm:w-auto sm:min-w-40 flex-col gap-0.5">
             <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
               Saldo
@@ -412,7 +412,7 @@ export function DofsPage() {
       </AnimatedSection>
       <AnimatedSection>
         <Card>
-          <div className="p-4 border-b border-[#e3ede3]">
+          <div className="p-4 border-b border-primary-muted">
             <Input
               placeholder="Buscar por número do DOF..."
               value={search}
@@ -431,7 +431,7 @@ export function DofsPage() {
             isLoading={isInitialLoading}
             emptyMessage="Nenhum DOF encontrado"
           />
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.

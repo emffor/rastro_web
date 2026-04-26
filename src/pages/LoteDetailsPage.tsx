@@ -443,7 +443,7 @@ export function LoteDetailsPage() {
 
   const renderPaginacao = useCallback(
     (paginacao: PaginacaoLista, onChangePagina: (valor: number) => void) => (
-      <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+      <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-apple-secondary">
             Mostrando {paginacao.inicio} a {paginacao.fim} de {paginacao.total}{" "}
@@ -585,7 +585,7 @@ export function LoteDetailsPage() {
                   </p>
                   {lote.capacidade_volume && (
                     <div className="mt-3">
-                      <div className="w-full bg-[#d7e5d8] rounded-full h-2">
+                      <div className="w-full bg-primary-muted rounded-full h-2">
                         <div
                           className="h-2 rounded-full transition-all duration-300"
                           style={{
@@ -658,7 +658,7 @@ export function LoteDetailsPage() {
                     className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       abaAtiva === "alocacoes"
                         ? "bg-primary text-white"
-                        : "bg-[#e3ede3] text-apple-dark hover:bg-[#d7e5d8]"
+                        : "bg-primary-muted text-apple-dark hover:bg-primary-muted"
                     }`}
                   >
                     Alocações DOF
@@ -673,7 +673,7 @@ export function LoteDetailsPage() {
                     className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       abaAtiva === "especies"
                         ? "bg-primary text-white"
-                        : "bg-[#e3ede3] text-apple-dark hover:bg-[#d7e5d8]"
+                        : "bg-primary-muted text-apple-dark hover:bg-primary-muted"
                     }`}
                   >
                     Espécies no lote
@@ -688,7 +688,7 @@ export function LoteDetailsPage() {
                     className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       abaAtiva === "pecas"
                         ? "bg-primary text-white"
-                        : "bg-[#e3ede3] text-apple-dark hover:bg-[#d7e5d8]"
+                        : "bg-primary-muted text-apple-dark hover:bg-primary-muted"
                     }`}
                   >
                     Peças dimensionadas
@@ -703,7 +703,7 @@ export function LoteDetailsPage() {
                     className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       abaAtiva === "historico"
                         ? "bg-primary text-white"
-                        : "bg-[#e3ede3] text-apple-dark hover:bg-[#d7e5d8]"
+                        : "bg-primary-muted text-apple-dark hover:bg-primary-muted"
                     }`}
                   >
                     Histórico
@@ -796,7 +796,7 @@ export function LoteDetailsPage() {
                               {especiesPaginadas.map((especie) => (
                                 <tr
                                   key={`resumo-especie-${especie.chave}`}
-                                  className="border-t border-[#e3ede3]"
+                                  className="border-t border-primary-muted"
                                 >
                                   <td className="px-3 py-2 text-apple-dark">
                                     {especie.especie_nome}
@@ -852,7 +852,7 @@ export function LoteDetailsPage() {
                               {pecasPaginadas.map((produto) => (
                                 <tr
                                   key={`resumo-prod-${produto.produto_dimensionado_id || produto.produto_nome}`}
-                                  className="border-t border-[#e3ede3]"
+                                  className="border-t border-primary-muted"
                                 >
                                   <td className="px-3 py-2 text-apple-dark">
                                     {produto.produto_codigo || "—"}
@@ -919,7 +919,7 @@ export function LoteDetailsPage() {
                         </span>
                         <input
                           type="date"
-                          className="h-10 rounded-lg border border-[#d7e5d8] bg-white px-3 text-sm text-apple-dark outline-none transition focus:border-primary"
+                          className="h-10 rounded-lg border border-primary-muted bg-white px-3 text-sm text-apple-dark outline-none transition focus:border-primary"
                           value={filtrosHistorico.data_inicio}
                           onChange={(event) =>
                             setFiltrosHistorico((atual) => ({
@@ -936,7 +936,7 @@ export function LoteDetailsPage() {
                         </span>
                         <input
                           type="date"
-                          className="h-10 rounded-lg border border-[#d7e5d8] bg-white px-3 text-sm text-apple-dark outline-none transition focus:border-primary"
+                          className="h-10 rounded-lg border border-primary-muted bg-white px-3 text-sm text-apple-dark outline-none transition focus:border-primary"
                           value={filtrosHistorico.data_fim}
                           onChange={(event) =>
                             setFiltrosHistorico((atual) => ({
@@ -1007,7 +1007,7 @@ export function LoteDetailsPage() {
                                   movimentacao.tipo;
                                 const tipoClass =
                                   TIPO_BADGE_CLASS[movimentacao.tipo] ||
-                                  "text-apple-secondary bg-[#e3ede3]";
+                                  "text-apple-secondary bg-primary-muted";
                                 const quantidadePecasDimensionadas =
                                   obterQuantidadePecasDimensionadas(
                                     movimentacao,
@@ -1020,7 +1020,7 @@ export function LoteDetailsPage() {
                                 return (
                                   <tr
                                     key={movimentacao.id}
-                                    className="border-t border-[#e3ede3] align-top"
+                                    className="border-t border-primary-muted align-top"
                                   >
                                     <td className="px-3 py-2 whitespace-nowrap text-apple-dark">
                                       {formatDate(movimentacao.created_at)}

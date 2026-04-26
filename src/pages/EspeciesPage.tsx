@@ -124,7 +124,7 @@ export function EspeciesPage() {
           <button
             onClick={() => navigate(`/especies/${e.id}`)}
             disabled={!podeEditar}
-            className="rounded p-1 text-apple-secondary hover:bg-[#e3ede3] hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded p-1 text-apple-secondary hover:bg-primary-muted hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
             title={podeEditar ? "Editar" : "Sem permissão para editar"}
           >
             <Pencil className="h-3.5 w-3.5" />
@@ -159,7 +159,7 @@ export function EspeciesPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="p-4 border-b border-[#e3ede3]">
+          <div className="p-4 border-b border-primary-muted">
             <Input
               placeholder="Buscar espécie..."
               value={search}
@@ -175,7 +175,7 @@ export function EspeciesPage() {
             isLoading={isLoading}
             emptyMessage="Nenhuma espécie encontrada"
           />
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.

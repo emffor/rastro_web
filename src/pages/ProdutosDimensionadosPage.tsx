@@ -387,7 +387,7 @@ export function ProdutosDimensionadosPage() {
       className: "w-[110px]",
       render: (produto: ProdutoDimensionado) => (
         <span
-          className={`inline-flex rounded border px-2 py-0.5 text-[11px] font-medium ${produto.ativo ? "bg-primary-muted text-primary-dark border-primary/20" : "bg-[#e3ede3] text-apple-secondary border-[#d7e5d8]"}`}
+          className={`inline-flex rounded border px-2 py-0.5 text-[11px] font-medium ${produto.ativo ? "bg-primary-muted text-primary-dark border-primary/20" : "bg-primary-muted text-apple-secondary border-primary-muted"}`}
         >
           {produto.ativo ? "Ativo" : "Inativo"}
         </span>
@@ -403,7 +403,7 @@ export function ProdutosDimensionadosPage() {
           <button
             onClick={() => abrirEditar(produto)}
             disabled={!podeEditar}
-            className="rounded p-1 text-apple-secondary hover:bg-[#e3ede3] hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded p-1 text-apple-secondary hover:bg-primary-muted hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
             title={podeEditar ? "Editar" : "Sem permissão para editar"}
           >
             <Pencil className="h-3.5 w-3.5" />
@@ -438,8 +438,8 @@ export function ProdutosDimensionadosPage() {
       />
 
       <AnimatedSection>
-        <Card className="overflow-hidden border-[#e3ede3] shadow-none">
-          <div className="border-b border-[#e3ede3] p-4 sm:p-5">
+        <Card className="overflow-hidden border-primary-muted shadow-none">
+          <div className="border-b border-primary-muted p-4 sm:p-5">
             <Input
               label="Buscar"
               placeholder="Código, tipo, espécie ou dimensões"
@@ -458,7 +458,7 @@ export function ProdutosDimensionadosPage() {
             className="[&_table]:min-w-280"
           />
 
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.
@@ -596,7 +596,7 @@ export function ProdutosDimensionadosPage() {
               value={form.observacao}
               onChange={handleChange}
               rows={3}
-              className="w-full rounded-lg border border-[#d7e5d8] bg-white px-3 py-2.5 text-sm text-apple-dark"
+              className="w-full rounded-lg border border-primary-muted bg-white px-3 py-2.5 text-sm text-apple-dark"
             />
           </div>
 
@@ -607,7 +607,7 @@ export function ProdutosDimensionadosPage() {
               type="checkbox"
               checked={form.ativo}
               onChange={handleToggleAtivo}
-              className="h-4 w-4 rounded border-[#c5d8c7] text-primary"
+              className="h-4 w-4 rounded border-primary text-primary"
             />
             <label htmlFor="ativo" className="text-sm text-apple-dark">
               Produto ativo

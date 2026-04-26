@@ -71,7 +71,7 @@ export function AdminAnexoCategoriasPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="border-b border-[#e3ede3] p-4">
+          <div className="border-b border-primary-muted p-4">
             <Input
               placeholder="Buscar categoria..."
               value={search}

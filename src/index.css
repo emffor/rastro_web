@@ -3,11 +3,11 @@
 /* Rastro Florestal Design System */
 @theme {
   /* Primary palette */
-  --color-primary: #4e8c60;
-  --color-primary-hover: #3b6b46;
-  --color-primary-light: #81c784;
-  --color-primary-dark: #3b6b46;
-  --color-primary-muted: #eaf2e8;
+  --color-primary: #374151;
+  --color-primary-hover: #1f2937;
+  --color-primary-light: #9ca3af;
+  --color-primary-dark: #111827;
+  --color-primary-muted: #f3f4f6;
 
   /* Backward compatibility aliases */
   --color-lv-green: var(--color-primary);
@@ -18,14 +18,14 @@
   --color-lv-mist: var(--color-primary-muted);
 
   /* Neutrals */
-  --color-apple-gray: #f6f8f4;
-  --color-apple-dark: #23402c;
-  --color-apple-secondary: #5f7767;
+  --color-apple-gray: #f9fafb;
+  --color-apple-dark: #111827;
+  --color-apple-secondary: #4b5563;
 
   /* Semantic */
-  --color-apple-success: #34c759;
-  --color-apple-warning: #ff9500;
-  --color-apple-danger: #ff3b30;
+  --color-apple-success: #6b7280;
+  --color-apple-warning: #6b7280;
+  --color-apple-danger: #6b7280;
 
   /* Font Family */
   --font-sans:
@@ -45,10 +45,10 @@ body {
   background:
     radial-gradient(
       circle at top,
-      color-mix(in srgb, var(--color-primary-light) 18%, transparent),
-      transparent 32%
+      color-mix(in srgb, var(--color-primary-light) 8%, transparent),
+      transparent 30%
     ),
-    linear-gradient(180deg, #f8fbf7 0%, var(--color-apple-gray) 100%);
+    linear-gradient(180deg, #ffffff 0%, var(--color-apple-gray) 100%);
   color: var(--color-apple-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

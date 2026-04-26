@@ -34,7 +34,7 @@ const TIPO_MOV: Record<string, { label: string; color: string }> = {
   ENTRADA: { label: "Entrada", color: "text-primary bg-primary-muted" },
   TRANSFERENCIA: { label: "Transferência", color: "text-primary bg-primary-muted" },
   BAIXA: { label: "Baixa", color: "text-apple-danger bg-apple-danger/10" },
-  AJUSTE: { label: "Ajuste", color: "text-amber-600 bg-amber-50" },
+  AJUSTE: { label: "Ajuste", color: "text-apple-warning bg-apple-warning/10" },
 };
 
 function fmtDate(d: string) {
@@ -225,7 +225,7 @@ export function DofAlocacaoPage() {
       : alocarLinhas.length > 0);
   const statusInfo = STATUS_MAP[dof.status] || {
     label: dof.status,
-    cls: "bg-[#e3ede3] text-apple-secondary border-[#d7e5d8]",
+    cls: "bg-primary-muted text-apple-secondary border-primary-muted",
   };
   const percentualAlocado = Math.min(100, Math.max(0, pct));
   const alocacoesColumns = [
@@ -247,7 +247,7 @@ export function DofAlocacaoPage() {
       header: "Lote",
       className: "w-36",
       render: (al: DofLote) => (
-        <span className="inline-flex whitespace-nowrap rounded-lg bg-[#e3ede3] px-2.5 py-1 font-semibold text-apple-dark">
+        <span className="inline-flex whitespace-nowrap rounded-lg bg-primary-muted px-2.5 py-1 font-semibold text-apple-dark">
           {al.lote?.nome || "—"}
         </span>
       ),
@@ -267,7 +267,7 @@ export function DofAlocacaoPage() {
           className={`inline-flex rounded border px-2 py-0.5 text-[11px] font-medium ${
             al.modo_alocacao === "PECAS"
               ? "bg-primary-muted text-primary-dark border-primary/20"
-              : "bg-[#e3ede3] text-apple-secondary border-[#d7e5d8]"
+              : "bg-primary-muted text-apple-secondary border-primary-muted"
           }`}
         >
           {al.modo_alocacao === "PECAS" ? "Peças" : "Manual"}
@@ -316,7 +316,7 @@ export function DofAlocacaoPage() {
             ))}
             {produtosOcultos.length > 0 && (
               <div
-                className="inline-flex items-center rounded border border-[#d7e5d8] bg-apple-gray px-2 py-1 text-[11px] font-medium text-apple-secondary"
+                className="inline-flex items-center rounded border border-primary-muted bg-apple-gray px-2 py-1 text-[11px] font-medium text-apple-secondary"
                 title={produtosOcultos
                   .map(
                     (produto) =>
@@ -486,7 +486,7 @@ export function DofAlocacaoPage() {
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
         <AnimatedSection>
-          <Card className="h-full overflow-hidden border-[#e3ede3]">
+          <Card className="h-full overflow-hidden border-primary-muted">
             <div className="h-1 bg-gradient-to-r from-primary to-primary" />
             <CardContent className="flex min-h-[124px] flex-col justify-between">
               <p className="text-sm text-apple-secondary">Status</p>
@@ -502,7 +502,7 @@ export function DofAlocacaoPage() {
           </Card>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
-          <Card className="h-full overflow-hidden border-[#e3ede3]">
+          <Card className="h-full overflow-hidden border-primary-muted">
             <div className="h-1 bg-gradient-to-r from-primary to-primary" />
             <CardContent className="flex min-h-[124px] flex-col justify-between">
               <p className="text-sm text-apple-secondary">Volume Alocado</p>
@@ -512,7 +512,7 @@ export function DofAlocacaoPage() {
                   / {formatarNumero(total, 4)} m³
                 </span>
               </p>
-              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-[#d7e5d8]">
+              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-primary-muted">
                 <div
                   className={`h-full rounded-full ${pct >= 100 ? "bg-primary" : pct > 0 ? "bg-primary" : "bg-apple-danger"}`}
                   style={{ width: `${percentualAlocado}%` }}
@@ -522,7 +522,7 @@ export function DofAlocacaoPage() {
           </Card>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
-          <Card className="h-full overflow-hidden border-[#e3ede3]">
+          <Card className="h-full overflow-hidden border-primary-muted">
             <div className="h-1 bg-gradient-to-r from-cyan-400 to-teal-400" />
             <CardContent className="flex min-h-[124px] flex-col justify-between">
               <p className="text-sm text-apple-secondary">Saldo Disponível</p>
@@ -539,7 +539,7 @@ export function DofAlocacaoPage() {
 
       {showAlocar && (
         <AnimatedSection>
-          <Card className="border-[#e3ede3] shadow-none">
+          <Card className="border-primary-muted shadow-none">
             <CardContent className="p-5">
               <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                 <div>
@@ -555,7 +555,7 @@ export function DofAlocacaoPage() {
                   </p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <div className="inline-flex rounded-lg border border-[#d7e5d8] bg-white p-1">
+                  <div className="inline-flex rounded-lg border border-primary-muted bg-white p-1">
                     <Button
                       type="button"
                       size="sm"
@@ -605,7 +605,7 @@ export function DofAlocacaoPage() {
               </div>
 
               <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
-                <div className="rounded-lg border border-[#e3ede3] p-2.5">
+                <div className="rounded-lg border border-primary-muted p-2.5">
                   <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                     Saldo do item
                   </p>
@@ -613,7 +613,7 @@ export function DofAlocacaoPage() {
                     {formatarNumero(maxVolumeItemSelecionado, 4)} m³
                   </p>
                 </div>
-                <div className="rounded-lg border border-[#e3ede3] p-2.5">
+                <div className="rounded-lg border border-primary-muted p-2.5">
                   <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                     Espaço no lote
                   </p>
@@ -623,7 +623,7 @@ export function DofAlocacaoPage() {
                       : "Ilimitado"}
                   </p>
                 </div>
-                <div className="rounded-lg border border-[#e3ede3] p-2.5">
+                <div className="rounded-lg border border-primary-muted p-2.5">
                   <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                     {modoAlocacao === "VOLUME"
                       ? "Volume informado"
@@ -635,7 +635,7 @@ export function DofAlocacaoPage() {
                       : totalPecas}
                   </p>
                 </div>
-                <div className="rounded-lg border border-[#e3ede3] p-2.5">
+                <div className="rounded-lg border border-primary-muted p-2.5">
                   <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                     Volume calculado
                   </p>
@@ -643,7 +643,7 @@ export function DofAlocacaoPage() {
                     {formatarNumero(volumeAlocacaoAtual, 4)} m³
                   </p>
                 </div>
-                <div className="rounded-lg border border-[#e3ede3] p-2.5">
+                <div className="rounded-lg border border-primary-muted p-2.5">
                   <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                     Máximo permitido
                   </p>
@@ -699,18 +699,18 @@ export function DofAlocacaoPage() {
                   <input
                     value={alocarObs}
                     onChange={(e) => setAlocarObs(e.target.value)}
-                    className="h-11 w-full rounded-lg border border-[#d7e5d8] bg-white px-3 text-sm text-apple-dark placeholder:text-apple-secondary"
+                    className="h-11 w-full rounded-lg border border-primary-muted bg-white px-3 text-sm text-apple-dark placeholder:text-apple-secondary"
                   />
                 </div>
               </div>
 
               {modoAlocacao === "PECAS" ? (
-                <div className="mt-4 rounded-lg border border-[#e3ede3] bg-apple-gray/60 p-3">
+                <div className="mt-4 rounded-lg border border-primary-muted bg-apple-gray/60 p-3">
                   <p className="text-xs font-medium uppercase tracking-wide text-apple-secondary">
                     Resumo do item DOF selecionado (estoque atual)
                   </p>
                   <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    <div className="rounded border border-[#e3ede3] bg-white px-3 py-2">
+                    <div className="rounded border border-primary-muted bg-white px-3 py-2">
                       <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                         Total de peças do item
                       </p>
@@ -718,7 +718,7 @@ export function DofAlocacaoPage() {
                         {resumoItemSelecionado.total_pecas}
                       </p>
                     </div>
-                    <div className="rounded border border-[#e3ede3] bg-white px-3 py-2">
+                    <div className="rounded border border-primary-muted bg-white px-3 py-2">
                       <p className="text-[11px] uppercase tracking-wide text-apple-secondary">
                         Volume alocado do item
                       </p>
@@ -738,7 +738,7 @@ export function DofAlocacaoPage() {
                       momento.
                     </p>
                   ) : (
-                    <div className="mt-2 overflow-x-auto rounded border border-[#e3ede3] bg-white">
+                    <div className="mt-2 overflow-x-auto rounded border border-primary-muted bg-white">
                       <table className="w-full min-w-[560px] text-[11px]">
                         <thead className="bg-apple-gray text-apple-secondary">
                           <tr>
@@ -757,7 +757,7 @@ export function DofAlocacaoPage() {
                           {resumoItemSelecionado.produtos.map((produto) => (
                             <tr
                               key={`resumo-item-${produto.produto_dimensionado_id || produto.produto_nome}`}
-                              className="border-t border-[#e3ede3]"
+                              className="border-t border-primary-muted"
                             >
                               <td className="px-2 py-1.5 text-apple-dark">
                                 {produto.produto_nome}
@@ -776,7 +776,7 @@ export function DofAlocacaoPage() {
                   )}
                 </div>
               ) : (
-                <div className="mt-4 rounded-lg border border-[#e3ede3] bg-apple-gray/60 p-3">
+                <div className="mt-4 rounded-lg border border-primary-muted bg-apple-gray/60 p-3">
                   <Input
                     type="text"
                     inputMode="decimal"
@@ -793,8 +793,8 @@ export function DofAlocacaoPage() {
               )}
 
               {modoAlocacao === "PECAS" && (
-                <div className="mt-4 overflow-x-auto rounded-lg border border-[#e3ede3]">
-                  <div className="min-w-[640px] grid grid-cols-12 border-b border-[#e3ede3] bg-apple-gray px-3 py-2 text-[11px] font-medium uppercase tracking-wide text-apple-secondary">
+                <div className="mt-4 overflow-x-auto rounded-lg border border-primary-muted">
+                  <div className="min-w-[640px] grid grid-cols-12 border-b border-primary-muted bg-apple-gray px-3 py-2 text-[11px] font-medium uppercase tracking-wide text-apple-secondary">
                     <div className="col-span-5">Produto Dimensionado</div>
                     <div className="col-span-2 text-right">Peças</div>
                     <div className="col-span-2 text-right">Vol. Unitário</div>
@@ -807,7 +807,7 @@ export function DofAlocacaoPage() {
                       Adicione linhas para calcular o volume automaticamente.
                     </p>
                   ) : (
-                    <div className="divide-y divide-[#e3ede3]">
+                    <div className="divide-y divide-primary-muted">
                       {alocarLinhas.map((linha, index) => {
                         const detalhe = linhasComDetalhe.find(
                           (item) => item.id === linha.id,
@@ -863,7 +863,7 @@ export function DofAlocacaoPage() {
                                   )
                                 }
                                 placeholder="0"
-                                className="h-10 w-full rounded border border-[#d7e5d8] px-2 text-right text-[11px] font-mono"
+                                className="h-10 w-full rounded border border-primary-muted px-2 text-right text-[11px] font-mono"
                               />
                             </div>
 
@@ -896,13 +896,13 @@ export function DofAlocacaoPage() {
               {modoAlocacao === "PECAS" &&
                 itemSelecionado &&
                 produtosCompativeis.length === 0 && (
-                  <p className="mt-3 text-xs text-amber-700">
+                  <p className="mt-3 text-xs text-apple-warning">
                     Não há produtos dimensionados ativos compatíveis com este
                     item DOF.
                   </p>
                 )}
 
-              <p className="mt-3 inline-flex items-center gap-2 border-t border-[#e3ede3] pt-3 text-xs text-apple-secondary">
+              <p className="mt-3 inline-flex items-center gap-2 border-t border-primary-muted pt-3 text-xs text-apple-secondary">
                 <Info className="h-4 w-4 text-apple-secondary" />
                 {itemSelecionado ? (
                   <>
@@ -950,7 +950,7 @@ export function DofAlocacaoPage() {
                   </span>
                 </p>
               </div>
-              <span className="rounded-full bg-[#e3ede3] px-2.5 py-1 text-xs font-medium text-apple-secondary">
+              <span className="rounded-full bg-primary-muted px-2.5 py-1 text-xs font-medium text-apple-secondary">
                 Em lotes físicos
               </span>
             </div>
@@ -959,7 +959,7 @@ export function DofAlocacaoPage() {
               columns={alocacoesColumns}
               keyExtractor={(al) => al.id}
               emptyMessage="Nenhum volume alocado em lotes."
-              className="[&_table]:min-w-[1280px] [&_thead_th]:bg-apple-gray/70 [&_thead_th]:sticky [&_thead_th]:top-0 [&_thead_th]:z-10 [&_tbody_tr:nth-child(even)]:bg-slate-50/40 [&_tbody_tr:hover]:bg-primary-muted/30 [&_tbody_td]:py-3 [&_tbody_td]:align-middle [&_tbody_tr:not(:first-child)_td]:border-t [&_tbody_tr:not(:first-child)_td]:border-[#e3ede3]"
+              className="[&_table]:min-w-[1280px] [&_thead_th]:bg-apple-gray/70 [&_thead_th]:sticky [&_thead_th]:top-0 [&_thead_th]:z-10 [&_tbody_tr:nth-child(even)]:bg-slate-50/40 [&_tbody_tr:hover]:bg-primary-muted/30 [&_tbody_td]:py-3 [&_tbody_td]:align-middle [&_tbody_tr:not(:first-child)_td]:border-t [&_tbody_tr:not(:first-child)_td]:border-primary-muted"
             />
           </CardContent>
         </Card>
@@ -1005,7 +1005,7 @@ export function DofAlocacaoPage() {
                     return (
                       <div
                         key={`timeline-${mov.id}`}
-                        className="rounded-lg border border-[#e3ede3] p-3"
+                        className="rounded-lg border border-primary-muted p-3"
                       >
                         <div className="flex flex-wrap items-center gap-2 mb-1">
                           <span

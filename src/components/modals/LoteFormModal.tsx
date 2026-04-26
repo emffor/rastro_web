@@ -199,7 +199,7 @@ export function LoteFormModal({
             onChange={handleChange}
             placeholder="Descrição opcional do lote..."
             rows={2}
-            className="w-full px-4 py-2.5 border border-[#d7e5d8] rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary"
+            className="w-full px-4 py-2.5 border border-primary-muted rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary"
           />
         </div>
 
@@ -269,7 +269,7 @@ export function LoteFormModal({
                   name="cor"
                   value={formData.cor}
                   onChange={handleChange}
-                  className="h-10 w-20 rounded border border-[#c5d8c7] cursor-pointer"
+                  className="h-10 w-20 rounded border border-primary cursor-pointer"
                 />
                 <Input
                   name="cor"
@@ -280,7 +280,7 @@ export function LoteFormModal({
                   className="flex-1 min-w-[150px]"
                 />
                 <div
-                  className="w-10 h-10 rounded-lg border-2 border-[#c5d8c7]"
+                  className="w-10 h-10 rounded-lg border-2 border-primary"
                   style={{ backgroundColor: formData.cor }}
                 />
               </div>

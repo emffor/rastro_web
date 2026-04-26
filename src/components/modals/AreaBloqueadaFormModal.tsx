@@ -130,7 +130,7 @@ function AreaBloqueadaFormModalContent({
                 }}
                 placeholder="0,00"
                 className={`w-full h-10 px-3 border rounded-lg text-sm bg-white ${
-                  errors.largura ? "border-apple-danger" : "border-[#d7e5d8]"
+                  errors.largura ? "border-apple-danger" : "border-primary-muted"
                 }`}
               />
               {errors.largura && (
@@ -152,7 +152,7 @@ function AreaBloqueadaFormModalContent({
                 }}
                 placeholder="0,00"
                 className={`w-full h-10 px-3 border rounded-lg text-sm bg-white ${
-                  errors.altura ? "border-apple-danger" : "border-[#d7e5d8]"
+                  errors.altura ? "border-apple-danger" : "border-primary-muted"
                 }`}
               />
               {errors.altura && (
@@ -170,7 +170,7 @@ function AreaBloqueadaFormModalContent({
                 type="color"
                 value={formData.cor}
                 onChange={(e) => handleChange("cor", e.target.value)}
-                className="h-10 w-20 rounded border border-[#c5d8c7] cursor-pointer"
+                className="h-10 w-20 rounded border border-primary cursor-pointer"
               />
               <Input
                 type="text"
@@ -215,7 +215,7 @@ function AreaBloqueadaFormModalContent({
             <Button
               type="button"
               onClick={handleClose}
-              className="w-full sm:w-auto px-4 py-2 text-apple-dark bg-[#e3ede3] hover:bg-[#d7e5d8]"
+              className="w-full sm:w-auto px-4 py-2 text-apple-dark bg-primary-muted hover:bg-primary-muted"
             >
               Cancelar
             </Button>

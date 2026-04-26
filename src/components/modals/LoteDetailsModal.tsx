@@ -109,7 +109,7 @@ export function LoteDetailsModal({
               </p>
               {lote.capacidade_volume && (
                 <div className="mt-3">
-                  <div className="w-full bg-[#d7e5d8] rounded-full h-2">
+                  <div className="w-full bg-primary-muted rounded-full h-2">
                     <div
                       className="h-2 rounded-full transition-all duration-300"
                       style={{

@@ -408,7 +408,7 @@ export function AdminEmpresasPage() {
               setSelectedEmpresa(e);
               setIsModalOpen(true);
             }}
-            className="rounded p-1 text-apple-secondary hover:bg-[#e3ede3] hover:text-apple-secondary"
+            className="rounded p-1 text-apple-secondary hover:bg-primary-muted hover:text-apple-secondary"
             title="Editar"
           >
             <Pencil className="h-3.5 w-3.5" />
@@ -450,7 +450,7 @@ export function AdminEmpresasPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="p-4 border-b border-[#e3ede3]">
+          <div className="p-4 border-b border-primary-muted">
             <Input
               placeholder="Buscar por nome ou CNPJ..."
               value={search}

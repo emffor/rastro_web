@@ -232,7 +232,7 @@ function DestaqueItem({
   icon?: ReactNode;
 }) {
   return (
-    <div className="min-w-0 rounded-xl border border-[#e7efe7] bg-white/95 p-3 shadow-sm">
+    <div className="min-w-0 rounded-xl border border-primary-muted bg-white/95 p-3 shadow-sm">
       <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-apple-secondary">
         {icon}
         <span>{label}</span>
@@ -273,7 +273,7 @@ function LoteResumo({
   const temLote = Boolean(lote);
 
   return (
-    <div className="min-w-0 rounded-xl border border-[#edf3ed] bg-[#fafdfa] p-3">
+    <div className="min-w-0 rounded-xl border border-[#edf3ed] bg-apple-gray p-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-apple-secondary">
           {titulo}
@@ -309,7 +309,7 @@ export function MovimentacaoDetalhesResumo({
   const tipoLabel = TIPO_CONFIG[movimentacao.tipo]?.label || movimentacao.tipo;
   const tipoClasse =
     TIPO_BADGE_CLASS[movimentacao.tipo] ||
-    "text-apple-secondary bg-[#e3ede3]";
+    "text-apple-secondary bg-primary-muted";
   const notasFiscais = movimentacao.saida_operacao_item?.notas_fiscais || [];
 
   return (
@@ -323,7 +323,7 @@ export function MovimentacaoDetalhesResumo({
               >
                 {tipoLabel}
               </span>
-              <span className="inline-flex max-w-full items-center rounded-full border border-[#e7efe7] bg-white px-3 py-1 text-xs font-medium text-apple-secondary">
+              <span className="inline-flex max-w-full items-center rounded-full border border-primary-muted bg-white px-3 py-1 text-xs font-medium text-apple-secondary">
                 <span className="truncate">{obterNaturezaMovimentacao(movimentacao.tipo)}</span>
               </span>
             </div>
@@ -362,7 +362,7 @@ export function MovimentacaoDetalhesResumo({
       </section>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(300px,0.8fr)]">
-        <section className="rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+        <section className="rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-primary" />
             <h4 className="text-sm font-semibold text-apple-dark">
@@ -391,7 +391,7 @@ export function MovimentacaoDetalhesResumo({
           </div>
         </section>
 
-        <section className="rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+        <section className="rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
           <div className="flex items-center gap-2">
             <FileText className="h-4 w-4 text-primary" />
             <h4 className="text-sm font-semibold text-apple-dark">
@@ -431,7 +431,7 @@ export function MovimentacaoDetalhesResumo({
       </div>
 
       {movimentacao.saida_operacao_item && (
-        <section className="rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+        <section className="rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
           <div className="flex items-center gap-2">
             <Package2 className="h-4 w-4 text-primary" />
             <h4 className="text-sm font-semibold text-apple-dark">
@@ -467,7 +467,7 @@ export function MovimentacaoDetalhesResumo({
       )}
 
       {mostrarObservacaoDetalhada && (
-        <section className="rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+        <section className="rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
           <div className="flex items-center gap-2">
             <CalendarClock className="h-4 w-4 text-primary" />
             <h4 className="text-sm font-semibold text-apple-dark">
@@ -481,7 +481,7 @@ export function MovimentacaoDetalhesResumo({
       )}
 
       {possuiResumoProdutos && (
-        <section className="rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+        <section className="rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="flex items-center gap-2">
               <Package2 className="h-4 w-4 text-primary" />
@@ -510,7 +510,7 @@ export function MovimentacaoDetalhesResumo({
               return (
                 <div
                   key={`${produto.produto_dimensionado_id || produto.produto_nome}-${idx}`}
-                  className="grid gap-3 rounded-xl border border-[#edf3ed] bg-[#fafdfa] p-3 lg:grid-cols-[minmax(0,1fr)_minmax(92px,auto)_minmax(112px,auto)_minmax(112px,auto)] lg:items-center"
+                  className="grid gap-3 rounded-xl border border-[#edf3ed] bg-apple-gray p-3 lg:grid-cols-[minmax(0,1fr)_minmax(92px,auto)_minmax(112px,auto)_minmax(112px,auto)] lg:items-center"
                 >
                   <div className="min-w-0">
                     <p className="break-words text-sm font-semibold text-apple-dark">

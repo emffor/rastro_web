@@ -270,7 +270,7 @@ export function LoteFormPage() {
                 onChange={handleChange}
                 placeholder="Descrição opcional do lote..."
                 rows={3}
-                className="w-full px-4 py-2.5 bg-white border border-[#d7e5d8] rounded-lg text-apple-dark placeholder:text-apple-secondary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-4 py-2.5 bg-white border border-primary-muted rounded-lg text-apple-dark placeholder:text-apple-secondary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
 
@@ -341,7 +341,7 @@ export function LoteFormPage() {
                       name="cor"
                       value={formData.cor}
                       onChange={handleChange}
-                      className="h-10 w-20 rounded border border-[#c5d8c7] cursor-pointer"
+                      className="h-10 w-20 rounded border border-primary cursor-pointer"
                     />
                     <Input
                       name="cor"
@@ -352,7 +352,7 @@ export function LoteFormPage() {
                       className="flex-1 min-w-[160px]"
                     />
                     <div
-                      className="w-10 h-10 rounded-lg border-2 border-[#c5d8c7]"
+                      className="w-10 h-10 rounded-lg border-2 border-primary"
                       style={{ backgroundColor: formData.cor }}
                     />
                   </div>
@@ -445,7 +445,7 @@ export function LoteFormPage() {
               </div>
             </div>
 
-            <div className="flex flex-col-reverse sm:flex-row justify-end gap-2 sm:gap-3 pt-4 border-t border-[#e3ede3]">
+            <div className="flex flex-col-reverse sm:flex-row justify-end gap-2 sm:gap-3 pt-4 border-t border-primary-muted">
               <Button
                 type="button"
                 variant="secondary"

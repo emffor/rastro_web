@@ -46,15 +46,15 @@ export function ManutencaoPage() {
       />
 
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-8">
-        <Card className="overflow-hidden border-[#e3ede3] shadow-sm">
+        <Card className="overflow-hidden border-primary-muted shadow-sm">
           <CardContent className="p-0">
-            <div className="relative bg-gradient-to-br from-[#f6fbf5] via-white to-[#e9f3e8] px-6 py-10 sm:px-10">
+            <div className="relative bg-gradient-to-br from-primary-muted/40 via-white to-primary-muted px-6 py-10 sm:px-10">
               <div className="absolute right-8 top-8 hidden h-28 w-28 rounded-full bg-primary/10 blur-2xl sm:block" />
               <div className="absolute bottom-6 left-12 hidden h-20 w-20 rounded-full bg-primary/10 blur-xl sm:block" />
 
               <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
                 <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#d9e7da] bg-white/80 px-3 py-1.5 text-xs font-medium text-primary-dark shadow-sm">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-primary-muted bg-white/80 px-3 py-1.5 text-xs font-medium text-primary-dark shadow-sm">
                     <Sparkles className="h-3.5 w-3.5" />
                     Em desenvolvimento
                   </div>
@@ -87,7 +87,7 @@ export function ManutencaoPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-[#dfeadf] bg-white/85 p-5 shadow-sm backdrop-blur">
+                <div className="rounded-2xl border border-primary-muted bg-white/85 p-5 shadow-sm backdrop-blur">
                   <div className="mb-5 flex items-center justify-between">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-apple-secondary">
@@ -103,19 +103,19 @@ export function ManutencaoPage() {
                   </div>
 
                   <div className="space-y-3">
-                    <div className="rounded-xl bg-[#f6fbf5] p-4">
+                    <div className="rounded-xl bg-primary-muted/40 p-4">
                       <div className="mb-2 flex items-center justify-between text-xs text-apple-secondary">
                         <span>Cota mensal de uploads</span>
                         <span className="font-semibold text-apple-dark">
                           Em breve
                         </span>
                       </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-[#dfeadf]">
+                      <div className="h-2 overflow-hidden rounded-full bg-primary-muted">
                         <div className="h-full w-2/3 rounded-full bg-primary" />
                       </div>
                     </div>
 
-                    <div className="rounded-xl border border-[#dfeadf] bg-white p-4">
+                    <div className="rounded-xl border border-primary-muted bg-white p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-dark">
                         Assinaturas futuras
                       </p>
@@ -127,7 +127,7 @@ export function ManutencaoPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 text-center">
-                      <div className="rounded-xl border border-[#e3ede3] bg-white p-3">
+                      <div className="rounded-xl border border-primary-muted bg-white p-3">
                         <p className="text-xl font-semibold text-apple-dark">
                           NF
                         </p>
@@ -135,7 +135,7 @@ export function ManutencaoPage() {
                           Uploads
                         </p>
                       </div>
-                      <div className="rounded-xl border border-[#e3ede3] bg-white p-3">
+                      <div className="rounded-xl border border-primary-muted bg-white p-3">
                         <p className="text-xl font-semibold text-apple-dark">
                           DOF
                         </p>
@@ -158,7 +158,7 @@ export function ManutencaoPage() {
             return (
               <Card
                 key={recurso.title}
-                className="border-[#e3ede3] shadow-none transition-colors hover:border-[#c5d8c7]"
+                className="border-primary-muted shadow-none transition-colors hover:border-primary"
               >
                 <CardContent className="p-5">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary-muted">
@@ -176,7 +176,7 @@ export function ManutencaoPage() {
           })}
         </div>
 
-        <Card className="border-[#e3ede3] bg-white shadow-none">
+        <Card className="border-primary-muted bg-white shadow-none">
           <CardContent className="p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-muted">

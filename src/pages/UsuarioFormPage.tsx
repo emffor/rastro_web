@@ -201,7 +201,7 @@ export function UsuarioFormPage() {
                 </h3>
 
                 {!podeEditar && (
-                  <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-sm">
+                  <div className="p-3 bg-apple-warning/10 border border-apple-warning/20 rounded-lg text-apple-warning text-sm">
                     Você não tem permissão para {isEditing ? "editar" : "criar"}{" "}
                     usuários. Os campos estão desabilitados.
                   </div>

@@ -166,7 +166,7 @@ export function AdminUsuariosPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="p-4 border-b border-[#e3ede3]">
+          <div className="p-4 border-b border-primary-muted">
             <Input
               placeholder="Buscar por nome ou email..."
               value={search}
@@ -182,7 +182,7 @@ export function AdminUsuariosPage() {
             isLoading={isLoading}
             emptyMessage="Nenhum usuário encontrado"
           />
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.

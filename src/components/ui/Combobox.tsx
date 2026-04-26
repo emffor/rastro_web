@@ -207,7 +207,7 @@ export function Combobox({
           className={`
             relative flex items-center w-full h-10 px-3 text-sm text-left bg-white border rounded-lg cursor-pointer
             ${disabled ? "bg-primary-muted cursor-not-allowed text-apple-dark font-medium" : "hover:bg-apple-gray text-apple-dark"}
-            ${error ? "border-apple-danger" : "border-[#d7e5d8] focus-within:border-primary focus-within:ring-1 focus-within:ring-primary"}
+            ${error ? "border-apple-danger" : "border-primary-muted focus-within:border-primary focus-within:ring-1 focus-within:ring-primary"}
           `}
           onClick={handleToggleOpen}
         >
@@ -243,16 +243,16 @@ export function Combobox({
           <div
             ref={dropdownRef}
             style={dropdownStyle}
-            className={`fixed z-[80] overflow-hidden rounded-lg border border-[#d7e5d8] bg-white shadow-lg ${
+            className={`fixed z-[80] overflow-hidden rounded-lg border border-primary-muted bg-white shadow-lg ${
               dropdownPosition === "top" ? "origin-bottom" : "origin-top"
             }`}
           >
-            <div className="p-2 border-b border-[#e3ede3]">
+            <div className="p-2 border-b border-primary-muted">
               <div className="relative">
                 <Search className="absolute w-4 h-4 text-apple-secondary left-2.5 top-2.5" />
                 <input
                   type="text"
-                  className="w-full pl-9 pr-3 py-1.5 text-sm text-apple-dark bg-apple-gray border border-[#d7e5d8] rounded-md focus:outline-none focus:border-primary focus:bg-white transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-sm text-apple-dark bg-apple-gray border border-primary-muted rounded-md focus:outline-none focus:border-primary focus:bg-white transition-colors"
                   placeholder={searchPlaceholder}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}

@@ -238,19 +238,19 @@ export function PatiosPage() {
           <div className="h-1.5 bg-gradient-to-r from-primary via-primary-light to-primary-light" />
           <div className="p-5">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              <div className="rounded-xl border border-[#e3ede3] bg-apple-gray/70 p-4">
+              <div className="rounded-xl border border-primary-muted bg-apple-gray/70 p-4">
                 <p className="text-xs text-apple-secondary">Total de pátios</p>
                 <p className="mt-1 text-2xl font-semibold text-apple-dark">
                   {resumo.total}
                 </p>
               </div>
-              <div className="rounded-xl border border-[#e3ede3] bg-apple-gray/70 p-4">
+              <div className="rounded-xl border border-primary-muted bg-apple-gray/70 p-4">
                 <p className="text-xs text-apple-secondary">Pátios ativos</p>
                 <p className="mt-1 text-2xl font-semibold text-primary">
                   {resumo.ativos}
                 </p>
               </div>
-              <div className="rounded-xl border border-[#e3ede3] bg-apple-gray/70 p-4">
+              <div className="rounded-xl border border-primary-muted bg-apple-gray/70 p-4">
                 <p className="text-xs text-apple-secondary">
                   Lotes cadastrados
                 </p>
@@ -258,7 +258,7 @@ export function PatiosPage() {
                   {resumo.lotes}
                 </p>
               </div>
-              <div className="rounded-xl border border-[#e3ede3] bg-apple-gray/70 p-4">
+              <div className="rounded-xl border border-primary-muted bg-apple-gray/70 p-4">
                 <p className="text-xs text-apple-secondary">
                   Área total estimada
                 </p>
@@ -327,7 +327,7 @@ export function PatiosPage() {
           <SkeletonGrid count={6} />
         ) : patios.length === 0 ? (
           <Card className="p-12 text-center">
-            <Box className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+            <Box className="h-12 w-12 mx-auto mb-4 text-primary-muted" />
             <h3 className="text-lg font-medium text-apple-dark mb-2">
               Nenhum pátio cadastrado
             </h3>
@@ -346,7 +346,7 @@ export function PatiosPage() {
           </Card>
         ) : patiosExibidos.length === 0 ? (
           <Card className="p-12 text-center">
-            <Search className="mx-auto mb-4 h-12 w-12 text-gray-300" />
+            <Search className="mx-auto mb-4 h-12 w-12 text-primary-muted" />
             <h3 className="mb-2 text-lg font-medium text-apple-dark">
               Nenhum resultado encontrado
             </h3>
@@ -373,7 +373,7 @@ export function PatiosPage() {
                 className="cursor-pointer"
                 onClick={() => navigate(`/patios/${patio.id}`)}
               >
-                <Card className="overflow-hidden border-[#e3ede3] p-0 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                <Card className="overflow-hidden border-primary-muted p-0 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
                   <div
                     className="relative h-36 overflow-hidden p-4"
                     style={getPatioBackgroundStyle(patio.cor_fundo)}
@@ -392,7 +392,7 @@ export function PatiosPage() {
                         className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${
                           patio.ativo
                             ? "border-primary/20 bg-primary/35 text-white"
-                            : "border-apple-danger/20/60 bg-apple-danger/35 text-white"
+                            : "border-apple-danger/20 bg-apple-danger/35 text-white"
                         }`}
                       >
                         {patio.ativo ? "Ativo" : "Inativo"}
@@ -412,19 +412,19 @@ export function PatiosPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div className="rounded-lg border border-[#e3ede3] bg-apple-gray/60 px-3 py-2">
+                      <div className="rounded-lg border border-primary-muted bg-apple-gray/60 px-3 py-2">
                         <p className="text-xs text-apple-secondary">Lotes</p>
                         <p className="font-semibold text-apple-dark">
                           {patio.lotes_count || 0}
                         </p>
                       </div>
-                      <div className="rounded-lg border border-[#e3ede3] bg-apple-gray/60 px-3 py-2">
+                      <div className="rounded-lg border border-primary-muted bg-apple-gray/60 px-3 py-2">
                         <p className="text-xs text-apple-secondary">Área</p>
                         <p className="font-semibold text-apple-dark">
                           {formatarAreaPatio(patio)}
                         </p>
                       </div>
-                      <div className="col-span-2 rounded-lg border border-[#e3ede3] bg-apple-gray/60 px-3 py-2">
+                      <div className="col-span-2 rounded-lg border border-primary-muted bg-apple-gray/60 px-3 py-2">
                         <p className="text-xs text-apple-secondary">
                           Dimensões
                         </p>

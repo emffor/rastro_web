@@ -129,7 +129,7 @@ export function UsuariosPage() {
             disabled={!podeAtivar || isToggling === u.id}
             className={`rounded p-1 transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
               u.ativo
-                ? "text-apple-secondary hover:bg-amber-50 hover:text-amber-600"
+                ? "text-apple-secondary hover:bg-apple-warning/10 hover:text-apple-warning"
                 : "text-apple-secondary hover:bg-primary-muted hover:text-primary"
             } ${isToggling === u.id ? "opacity-50 cursor-wait" : ""}`}
             title={podeAtivar ? (u.ativo ? "Desativar" : "Ativar") : "Sem permissão para ativar/desativar"}
@@ -140,7 +140,7 @@ export function UsuariosPage() {
         <button
           onClick={() => navigate(`/usuarios/${u.id}`)}
           disabled={!podeEditar}
-          className="rounded p-1 text-apple-secondary hover:bg-[#e3ede3] hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded p-1 text-apple-secondary hover:bg-primary-muted hover:text-apple-secondary disabled:cursor-not-allowed disabled:opacity-40"
           title={podeEditar ? "Editar" : "Sem permissão para editar"}
         >
           <Pencil className="h-3.5 w-3.5" />
@@ -193,7 +193,7 @@ export function UsuariosPage() {
 
   // Card view para mobile
   const mobileCardRender = (u: Usuario) => (
-    <div className="bg-white border border-[#e3ede3] rounded-xl p-4 space-y-3">
+    <div className="bg-white border border-primary-muted rounded-xl p-4 space-y-3">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <h3 className="font-medium text-apple-dark truncate">{u.name}</h3>
@@ -216,7 +216,7 @@ export function UsuariosPage() {
         </p>
       )}
 
-      <div className="flex justify-end pt-2 border-t border-[#e3ede3]">
+      <div className="flex justify-end pt-2 border-t border-primary-muted">
         {renderActions(u)}
       </div>
     </div>
@@ -240,7 +240,7 @@ export function UsuariosPage() {
       />
       <AnimatedSection>
         <Card>
-          <div className="p-4 border-b border-[#e3ede3]">
+          <div className="p-4 border-b border-primary-muted">
             <Input
               placeholder="Buscar por nome ou email..."
               value={search}
@@ -256,7 +256,7 @@ export function UsuariosPage() {
             emptyMessage="Nenhum usuário encontrado"
             mobileCardRender={mobileCardRender}
           />
-          <div className="border-t border-[#e3ede3] px-4 py-3 sm:px-5">
+          <div className="border-t border-primary-muted px-4 py-3 sm:px-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-apple-secondary">
                 Mostrando {inicioPagina} a {fimPagina} de {total} registros.

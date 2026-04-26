@@ -19,7 +19,7 @@ export function Card({ children, className, padding = 'md', onClick }: CardProps
   return (
     <div
       className={cn(
-        'bg-white rounded-2xl shadow-sm border border-[#e3ede3]',
+        'bg-white rounded-2xl shadow-sm border border-primary-muted',
         paddingStyles[padding],
         className
       )}

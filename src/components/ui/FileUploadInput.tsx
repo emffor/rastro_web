@@ -83,7 +83,7 @@ export function FileUploadInput({
 
       <div
         className={cn(
-          "min-h-30 rounded-lg border border-dashed border-[#d7e5d8] bg-white px-3 py-3 shadow-sm transition-colors",
+          "min-h-30 rounded-lg border border-dashed border-primary-muted bg-white px-3 py-3 shadow-sm transition-colors",
           error ? "border-apple-danger" : "hover:border-primary/50",
           (disabled || isLoading) && "opacity-70",
         )}

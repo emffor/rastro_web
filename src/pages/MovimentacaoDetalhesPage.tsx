@@ -143,11 +143,11 @@ function AnexoEntradaCard({
         <p className="text-sm font-medium text-apple-dark">{label}</p>
         <button
           onClick={() => onVisualizar(anexo)}
-          className="flex min-h-30 items-center justify-between gap-3 rounded-xl border border-[#e8efe8] bg-[#fbfdfb] p-3 text-left text-sm transition-colors hover:bg-[#f4faf4]"
+          className="flex min-h-30 items-center justify-between gap-3 rounded-xl border border-[#e8efe8] bg-apple-gray p-3 text-left text-sm transition-colors hover:bg-[#f4faf4]"
         >
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center rounded-full bg-[#e3ede3] px-2 py-0.5 text-[10px] font-semibold uppercase text-apple-dark">
+              <span className="inline-flex items-center rounded-full bg-primary-muted px-2 py-0.5 text-[10px] font-semibold uppercase text-apple-dark">
                 {anexo.tipo}
               </span>
               <span className="font-medium text-apple-dark">Visualizar</span>
@@ -454,7 +454,7 @@ export function MovimentacaoDetalhesPage() {
               </div>
 
               {isMovimentacaoEntrada ? (
-                <div className="rounded-2xl border border-[#e3ede3] bg-white p-3.5 shadow-sm">
+                <div className="rounded-2xl border border-primary-muted bg-white p-3.5 shadow-sm">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
                       <p className="text-sm font-semibold text-apple-dark">
@@ -528,7 +528,7 @@ export function MovimentacaoDetalhesPage() {
                     return (
                       <div
                         key={nota.id}
-                        className="rounded-2xl border border-[#e3ede3] bg-white p-3.5 shadow-sm"
+                        className="rounded-2xl border border-primary-muted bg-white p-3.5 shadow-sm"
                       >
                         <div className="flex flex-wrap items-center justify-between gap-2">
                           <div>
@@ -544,7 +544,7 @@ export function MovimentacaoDetalhesPage() {
                               {anexosNota.length} anexo(s)
                             </span>
                             {(faltandoNf || faltandoDof) && (
-                              <span className="rounded-full bg-amber-50 px-2.5 py-1 text-amber-700">
+                              <span className="rounded-full bg-apple-warning/10 px-2.5 py-1 text-apple-warning">
                                 pendente
                               </span>
                             )}
@@ -557,11 +557,11 @@ export function MovimentacaoDetalhesPage() {
                               <button
                                 key={`${nota.id}-${anexo.tipo}`}
                                 onClick={() => abrirAnexo(nota.id, anexo.tipo)}
-                                className="flex items-center justify-between gap-3 rounded-xl border border-[#e8efe8] bg-[#fbfdfb] p-3 text-left text-sm transition-colors hover:bg-[#f4faf4]"
+                                className="flex items-center justify-between gap-3 rounded-xl border border-[#e8efe8] bg-apple-gray p-3 text-left text-sm transition-colors hover:bg-[#f4faf4]"
                               >
                                 <div className="min-w-0">
                                   <div className="flex items-center gap-2">
-                                    <span className="inline-flex items-center rounded-full bg-[#e3ede3] px-2 py-0.5 text-[10px] font-semibold uppercase text-apple-dark">
+                                    <span className="inline-flex items-center rounded-full bg-primary-muted px-2 py-0.5 text-[10px] font-semibold uppercase text-apple-dark">
                                       {anexo.tipo}
                                     </span>
                                     <span className="font-medium text-apple-dark">
@@ -582,7 +582,7 @@ export function MovimentacaoDetalhesPage() {
                         )}
 
                         {(faltandoNf || faltandoDof) && (
-                          <div className="mt-3 rounded-xl border border-dashed border-[#d7e5d8] bg-[#fafdfa] p-3">
+                          <div className="mt-3 rounded-xl border border-dashed border-primary-muted bg-apple-gray p-3">
                             <div className="mb-3 flex items-center justify-between gap-2">
                               <p className="text-sm font-medium text-apple-dark">
                                 Adicionar anexos pendentes
@@ -646,7 +646,7 @@ export function MovimentacaoDetalhesPage() {
       >
         {visualizacao && (
           <div className="flex h-[calc(100dvh-180px)] min-h-130 flex-col">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e3ede3] p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-primary-muted p-4">
               <div className="min-w-0">
                 <p className="text-xs uppercase tracking-wide text-apple-secondary">
                   Leitor de{" "}
@@ -668,7 +668,7 @@ export function MovimentacaoDetalhesPage() {
                 <a
                   href={visualizacao.url}
                   download={visualizacao.nomeOriginal}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-[#d9e7da] bg-white px-4 py-2 text-sm font-medium text-apple-dark transition-all duration-200 hover:bg-primary-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-primary-muted bg-white px-4 py-2 text-sm font-medium text-apple-dark transition-all duration-200 hover:bg-primary-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <Download className="h-4 w-4" />
                   Download
@@ -689,7 +689,7 @@ export function MovimentacaoDetalhesPage() {
 
             <div className="flex-1 bg-[#f8fbf8] p-4">
               {erroVisualizacao ? (
-                <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-[#d7e5d8] bg-white p-6 text-center">
+                <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-primary-muted bg-white p-6 text-center">
                   <AlertCircle className="h-10 w-10 text-[#b45f4c]" />
                   <h4 className="mt-3 text-base font-semibold text-apple-dark">
                     Não foi possível carregar o PDF
@@ -718,7 +718,7 @@ export function MovimentacaoDetalhesPage() {
                   visualizacao.nomeOriginal,
                   visualizacao.url,
                 ) ? (
-                <div className="flex h-full items-center justify-center rounded-2xl border border-[#e3ede3] bg-white p-4 shadow-sm">
+                <div className="flex h-full items-center justify-center rounded-2xl border border-primary-muted bg-white p-4 shadow-sm">
                   <img
                     src={visualizacao.url}
                     alt={visualizacao.titulo}
@@ -730,7 +730,7 @@ export function MovimentacaoDetalhesPage() {
                   key={`${visualizacao.url}-${iframeKey}`}
                   src={visualizacao.url}
                   title={visualizacao.titulo}
-                  className="h-full w-full rounded-2xl border border-[#e3ede3] bg-white shadow-sm"
+                  className="h-full w-full rounded-2xl border border-primary-muted bg-white shadow-sm"
                   onLoad={() => setErroVisualizacao(null)}
                   onError={() =>
                     setErroVisualizacao(

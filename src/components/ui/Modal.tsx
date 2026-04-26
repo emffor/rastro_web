@@ -78,14 +78,14 @@ export function Modal({
               exit={{ opacity: 0, scale: 0.98, y: 10 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className={cn(
-                "my-auto w-full max-h-[calc(100dvh-1rem)] bg-white rounded-2xl shadow-xl border border-[#e3ede3] overflow-hidden",
+                "my-auto w-full max-h-[calc(100dvh-1rem)] bg-white rounded-2xl shadow-xl border border-primary-muted overflow-hidden",
                 sizeStyles[size],
                 className,
               )}
               onClick={(e) => e.stopPropagation()}
             >
               {title && (
-                <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 border-b border-[#e3ede3]">
+                <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 border-b border-primary-muted">
                   <div className="flex items-center gap-3">
                     {icon && (
                       <div className="shrink-0 p-2 bg-primary/10 rounded-xl">

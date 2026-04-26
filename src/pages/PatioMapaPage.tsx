@@ -639,7 +639,7 @@ export function PatioMapaPage() {
                 ))}
               </div>
             </div>
-            <div className="mb-4 rounded-lg border border-[#c5d8c7] bg-apple-gray px-3 py-2">
+            <div className="mb-4 rounded-lg border border-primary bg-apple-gray px-3 py-2">
               <div className="grid grid-cols-1 gap-x-4 gap-y-1 text-[11px] text-apple-dark sm:grid-cols-2">
                 {STATUS_LEGEND_ITEMS.map((item) => (
                   <span key={`${item.status}-descricao`}>
@@ -690,7 +690,7 @@ export function PatioMapaPage() {
                     placeholder="Buscar lote..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-8 pr-3 py-1.5 text-xs border border-[#d7e5d8] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full pl-8 pr-3 py-1.5 text-xs border border-primary-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   />
                   {searchTerm && (
                     <button
@@ -722,7 +722,7 @@ export function PatioMapaPage() {
                         className={`p-3 rounded-lg border cursor-pointer transition-all ${
                           isSelected
                             ? "border-primary bg-primary-muted shadow-sm"
-                            : "border-[#d7e5d8] hover:border-[#c5d8c7] hover:bg-apple-gray"
+                            : "border-primary-muted hover:border-primary hover:bg-apple-gray"
                         }`}
                         onClick={() => handleLoteClick(lote)}
                       >
@@ -758,7 +758,7 @@ export function PatioMapaPage() {
                         {lote.capacidade_volume &&
                           Number(lote.capacidade_volume) > 0 && (
                             <div className="mt-1.5">
-                              <div className="w-full bg-[#d7e5d8] rounded-full h-1.5">
+                              <div className="w-full bg-primary-muted rounded-full h-1.5">
                                 <div
                                   className="h-1.5 rounded-full transition-all duration-300"
                                   style={{
@@ -775,7 +775,7 @@ export function PatioMapaPage() {
                           )}
 
                         {isEditing && (
-                          <div className="flex items-center gap-1 mt-2 pt-2 border-t border-[#e3ede3]">
+                          <div className="flex items-center gap-1 mt-2 pt-2 border-t border-primary-muted">
                             <button
                               type="button"
                               onClick={(e) => {
