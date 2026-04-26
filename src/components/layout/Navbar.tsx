@@ -1,7 +1,14 @@
-import { Building2, ChevronDown, LogOut, Menu, ShieldCheck, X } from "lucide-react";
+import {
+  Building2,
+  ChevronDown,
+  LogOut,
+  Menu,
+  ShieldCheck,
+  X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logoIcon from "../../assets/logo-2-fosco.png";
+import logoIcon from "../../assets/logo.png";
 import { useAuth } from "../../hooks/useAuth";
 import { cn } from "../../lib/utils";
 import { hasPermission } from "../../utils/permissions";
@@ -167,20 +174,22 @@ export function Navbar({ onMenuClick, isSidebarOpen }: NavbarProps) {
 
           {/* Desktop Navigation - hidden on mobile */}
           <div className="hidden lg:flex items-center gap-1">
-            {mostrarNavOperacional ? navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={cn(
-                  "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                  location.pathname === item.href
-                    ? "bg-primary-muted text-primary-dark"
-                    : "text-apple-secondary hover:bg-primary-muted hover:text-apple-dark",
-                )}
-              >
-                {item.label}
-              </Link>
-            )) : (
+            {mostrarNavOperacional ? (
+              navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={cn(
+                    "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                    location.pathname === item.href
+                      ? "bg-primary-muted text-primary-dark"
+                      : "text-apple-secondary hover:bg-primary-muted hover:text-apple-dark",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))
+            ) : (
               <Link
                 to="/admin"
                 className={cn(

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
-import logoIcon from "../assets/logo-2-fosco.png";
+import logoIcon from "../assets/logo.png";
 
 export function AuthLayout() {
   return (
