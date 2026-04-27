@@ -11,6 +11,7 @@ import { useConfirmDialog } from "./useConfirmDialog";
 import { toastUtils } from "../utils/toast";
 import type { Dof, DofLote, DofLotesResumo, Movimentacao, ProdutoDimensionado } from "../types";
 import { resolverTipoSerragemEspecie } from "../utils/especie";
+import { obterUnidadeDof } from "../utils/unidadeMedida";
 import type { LoteResumo } from "../services/PatioService";
 
 function normalizarTexto(valor?: string | null): string {
@@ -396,7 +397,7 @@ export function useDofAlocacao(id: string | undefined) {
       }
 
       if (volumeCalculadoNormalizado - maximoPermitidoNormalizado > EPSILON_VOLUME) {
-        toastUtils.error(`Volume acima do permitido. Máximo: ${maxVolumePermitido} m³.`);
+        toastUtils.error(`Volume acima do permitido. Máximo: ${maxVolumePermitido} ${obterUnidadeDof(dof)}.`);
         return;
       }
 
@@ -457,7 +458,7 @@ export function useDofAlocacao(id: string | undefined) {
     }
 
     if (volumeCalculadoNormalizado - maximoPermitidoNormalizado > EPSILON_VOLUME) {
-      toastUtils.error(`Volume acima do permitido. Máximo: ${maxVolumePermitido} m³.`);
+      toastUtils.error(`Volume acima do permitido. Máximo: ${maxVolumePermitido} ${obterUnidadeDof(dof)}.`);
       return;
     }
 

@@ -88,8 +88,8 @@ function formatarLoteComPatio(
   return nomePatio ? `${nomeLote} (${nomePatio})` : nomeLote;
 }
 
-function formatarVolumeM3(valor?: number | string | null): string {
-  return `${formatarNumero(valor, 4)} m³`;
+function formatarVolumeM3(valor?: number | string | null, unidade = "m³"): string {
+  return `${formatarNumero(valor, 4)} ${unidade}`;
 }
 
 function formatarStatusLote(status?: string | null): string {
@@ -265,10 +265,12 @@ function LoteResumo({
   titulo,
   lote,
   mensagemVazia,
+  unidade = 'm\u00b3',
 }: {
   titulo: string;
   lote?: Movimentacao["lote_origem"] | null;
   mensagemVazia: string;
+  unidade?: string;
 }) {
   const temLote = Boolean(lote);
 
@@ -285,7 +287,7 @@ function LoteResumo({
       </p>
       <p className="mt-1 text-xs leading-5 text-apple-secondary">
         {temLote
-          ? `Volume ocupado: ${formatarVolumeM3(lote?.volume_ocupado || 0)}`
+          ? `Volume ocupado: ${formatarVolumeM3(lote?.volume_ocupado || 0, unidade)}`
           : mensagemVazia}
       </p>
     </div>
@@ -299,6 +301,7 @@ export function MovimentacaoDetalhesResumo({
   const movimentacaoId = movimentacao.identificador_legivel || "—";
   const especieInfo = obterEspecieMovimentacao(movimentacao);
   const resumoMovimentacao = formatarObservacaoMovimentacao(movimentacao);
+  const unidade = movimentacao.unidade_medida || 'm\u00b3';
   const totaisProdutos = obterTotaisProdutos(movimentacao);
   const possuiResumoProdutos = totaisProdutos.itens > 0;
   const observacaoOriginal = movimentacao.observacao?.trim() || "";
@@ -333,7 +336,7 @@ export function MovimentacaoDetalhesResumo({
                 Volume movimentado
               </p>
               <h3 className="mt-1 font-mono text-2xl font-semibold leading-tight text-apple-dark sm:text-3xl">
-                {formatarVolumeM3(movimentacao.volume_m3)}
+                {formatarVolumeM3(movimentacao.volume_m3, unidade)}
               </h3>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-apple-secondary">
                 {resumoMovimentacao}
@@ -375,6 +378,7 @@ export function MovimentacaoDetalhesResumo({
               titulo="Origem"
               lote={movimentacao.lote_origem}
               mensagemVazia="Movimentação sem lote de origem informado."
+              unidade={unidade}
             />
 
             <div className="hidden justify-center sm:flex sm:items-center">
@@ -387,6 +391,7 @@ export function MovimentacaoDetalhesResumo({
               titulo="Destino"
               lote={movimentacao.lote_destino}
               mensagemVazia="Movimentação sem lote de destino informado."
+              unidade={unidade}
             />
           </div>
         </section>
@@ -415,13 +420,13 @@ export function MovimentacaoDetalhesResumo({
                 <InfoItem
                   label="Saldo disponível"
                   valor={formatarVolumeM3(
-                    movimentacao.dof_item.quantidade_disponivel,
+                    movimentacao.dof_item.quantidade_disponivel, unidade,
                   )}
                 />
                 <InfoItem
                   label="Volume autorizado"
                   valor={formatarVolumeM3(
-                    movimentacao.dof_item.quantidade_autorizada,
+                    movimentacao.dof_item.quantidade_autorizada, unidade,
                   )}
                 />
               </>
@@ -443,19 +448,19 @@ export function MovimentacaoDetalhesResumo({
             <DestaqueItem
               label="Volume solicitado"
               valor={formatarVolumeM3(
-                movimentacao.saida_operacao_item.volume_solicitado_m3,
+                movimentacao.saida_operacao_item.volume_solicitado_m3, unidade,
               )}
             />
             <DestaqueItem
               label="Volume baixado"
               valor={formatarVolumeM3(
-                movimentacao.saida_operacao_item.volume_baixado_m3,
+                movimentacao.saida_operacao_item.volume_baixado_m3, unidade,
               )}
             />
             <DestaqueItem
               label="Volume sem produto"
               valor={formatarVolumeM3(
-                movimentacao.saida_operacao_item.volume_sem_produto_m3 || 0,
+                movimentacao.saida_operacao_item.volume_sem_produto_m3 || 0, unidade,
               )}
             />
             <DestaqueItem
@@ -498,7 +503,7 @@ export function MovimentacaoDetalhesResumo({
                 {totaisProdutos.pecas} peça(s)
               </span>
               <span className="rounded-full bg-[#f3f8f3] px-2.5 py-1 font-mono">
-                {formatarVolumeM3(totaisProdutos.volume)}
+                {formatarVolumeM3(totaisProdutos.volume, unidade)}
               </span>
             </div>
           </div>
@@ -530,11 +535,11 @@ export function MovimentacaoDetalhesResumo({
                   />
                   <InfoItem
                     label="Vol. unitário"
-                    valor={volumeUnitario > 0 ? formatarVolumeM3(volumeUnitario) : "—"}
+                    valor={volumeUnitario > 0 ? formatarVolumeM3(volumeUnitario, unidade) : "—"}
                   />
                   <InfoItem
                     label="Volume total"
-                    valor={formatarVolumeM3(produto.volume_total_m3 || 0)}
+                    valor={formatarVolumeM3(produto.volume_total_m3 || 0, unidade)}
                     destaque
                   />
                 </div>

@@ -19,6 +19,7 @@ import type { AnexoGenerico, DofItem, Especie } from "../types";
 import { resolverTipoSerragemEspecie } from "../utils/especie";
 import { formatarNumero } from "../utils/format";
 import { toastUtils } from "../utils/toast";
+import { UNIDADES_MEDIDA, type UnidadeMedida } from "../utils/unidadeMedida";
 
 interface ItemForm {
   especie_id: string;
@@ -142,6 +143,8 @@ export function DofFormPage() {
     destino: "",
   });
 
+  const [unidadeMedida, setUnidadeMedida] = useState<UnidadeMedida>("m\u00b3");
+
   const [itens, setItens] = useState<ItemForm[]>([]);
   const [especies, setEspecies] = useState<Especie[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -192,6 +195,7 @@ export function DofFormPage() {
           origem: dof.origem || "",
           destino: dof.destino || "",
         });
+        setUnidadeMedida((dof.unidade_medida as UnidadeMedida) || "m\u00b3");
 
         if (dof.itens && dof.itens.length > 0) {
           setItens(
@@ -569,6 +573,7 @@ export function DofFormPage() {
         nota_fiscal: formData.nota_fiscal || null,
         origem: formData.origem || null,
         destino: formData.destino || null,
+        unidade_medida: unidadeMedida,
         ...(possuiAlocacoesEmLotes
           ? {}
           : {
@@ -984,7 +989,7 @@ export function DofFormPage() {
                   disabled={possuiAlocacoesEmLotes}
                 />
                 <Input
-                  label="Volume Total (m³) (automático)"
+                  label={`Volume Total (${unidadeMedida}) (automático)`}
                   name="volume_total"
                   value={formatarNumero(
                     possuiAlocacoesEmLotes
@@ -997,7 +1002,19 @@ export function DofFormPage() {
                   disabled
                   placeholder="Calculado pelos itens"
                 />
-                <div className="hidden md:block" />
+                <Combobox
+                  label="Unidade de Medida *"
+                  options={UNIDADES_MEDIDA.map((u) => ({
+                    label: u.label,
+                    value: u.value,
+                  }))}
+                  value={unidadeMedida}
+                  onChange={(value) =>
+                    setUnidadeMedida((value as UnidadeMedida) || "m\u00b3")
+                  }
+                  placeholder="Selecione..."
+                  disabled={possuiAlocacoesEmLotes}
+                />
                 <Input
                   label="Origem"
                   name="origem"
@@ -1091,7 +1108,7 @@ export function DofFormPage() {
                           </div>
                           <div>
                             <label className="block text-xs text-apple-secondary mb-1">
-                              Qtd (m³) *
+                              Qtd ({unidadeMedida}) *
                             </label>
                             <input
                               type="text"

@@ -171,7 +171,7 @@ function formatarResumoProdutosSaida(m: Movimentacao): string {
 
   if (modoAlocacao === "MANUAL") {
     return volumeSemProduto > 0
-      ? `Sem produto: ${formatarNumero(volumeSemProduto, 4)} m³`
+      ? `Sem produto: ${formatarNumero(volumeSemProduto, 4)} ${m.unidade_medida || 'm³'}`
       : "—";
   }
 
@@ -208,7 +208,7 @@ function formatarResumoProdutosSaida(m: Movimentacao): string {
   );
 
   if (volumeSemProduto > 0) {
-    partes.push(`Sem produto: ${formatarNumero(volumeSemProduto, 4)} m³`);
+    partes.push(`Sem produto: ${formatarNumero(volumeSemProduto, 4)} ${m.unidade_medida || 'm³'}`);
   }
 
   return partes.length > 0 ? partes.join(" | ") : "—";
@@ -568,7 +568,7 @@ export function MovimentacoesPage() {
       },
       {
         key: "volume_m3",
-        header: "Volume (m³)",
+        header: "Volume",
         className: "w-[130px] text-right",
         render: (m: Movimentacao) => (
           <span className="font-mono">{formatarNumero(m.volume_m3, 4)}</span>

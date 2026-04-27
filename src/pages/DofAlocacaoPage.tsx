@@ -28,6 +28,7 @@ import type {
 import type { LoteResumo } from "../services/PatioService";
 import { formatarNumero, formatarPercentual } from "../utils/format";
 import { resolverTipoSerragemEspecie } from "../utils/especie";
+import { obterUnidadeDof } from "../utils/unidadeMedida";
 import { STATUS_MAP } from "../constants/dof";
 
 const TIPO_MOV: Record<string, { label: string; color: string }> = {
@@ -90,17 +91,17 @@ function formatarNomeEspecie(especie?: DofItem["especie"] | null): string {
   return especie.nome_formatado || popular || cientifico || "Sem espécie";
 }
 
-function formatarOpcaoLote(lote: LoteResumo) {
+function formatarOpcaoLote(lote: LoteResumo, unidade: string) {
   const ocupado = Number(lote.volume_ocupado || 0);
   const capacidade = Number(lote.capacidade_volume || 0);
   const temCapacidade = Number.isFinite(capacidade) && capacidade > 0;
   const disponivel = temCapacidade ? Math.max(0, capacidade - ocupado) : null;
 
   const sufixoDisponivel = temCapacidade
-    ? `disp: ${formatarNumero(disponivel ?? 0, 4)} m³`
+    ? `disp: ${formatarNumero(disponivel ?? 0, 4)} ${unidade}`
     : "disp: ilimitado";
 
-  return `${lote.nome} — ${lote.patio_nome} (ocup: ${formatarNumero(ocupado, 4)} m³ | ${sufixoDisponivel})`;
+  return `${lote.nome} — ${lote.patio_nome} (ocup: ${formatarNumero(ocupado, 4)} ${unidade} | ${sufixoDisponivel})`;
 }
 
 function normalizarTipo(tipo?: string | null): string {
@@ -206,6 +207,7 @@ export function DofAlocacaoPage() {
   const saldo = Number(dof.volume_saldo_m3);
   const total = Number(dof.volume_total);
   const alocado = total - saldo;
+  const unidade = obterUnidadeDof(dof);
   const pct = total > 0 ? (alocado / total) * 100 : 0;
   const volumeInformado = Number(volumeNoPecas.replace(",", "."));
   const volumeInformadoValido =
@@ -333,7 +335,7 @@ export function DofAlocacaoPage() {
     },
     {
       key: "volume_m3",
-      header: "Volume (m³)",
+      header: `Volume (${unidade})`,
       className: "w-32 font-mono",
       align: "right" as const,
       render: (al: DofLote) => formatarNumero(al.volume_m3, 4),
@@ -470,8 +472,8 @@ export function DofAlocacaoPage() {
                   Resumo operacional do DOF
                 </p>
                 <h2 className="mt-1 text-xl font-semibold text-apple-dark">
-                  {formatarNumero(alocado, 4)} m³ alocados de{" "}
-                  {formatarNumero(total, 4)} m³
+                  {formatarNumero(alocado, 4)} {unidade} alocados de{" "}
+                  {formatarNumero(total, 4)} {unidade}
                 </h2>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
@@ -509,7 +511,7 @@ export function DofAlocacaoPage() {
               <p className="text-2xl font-semibold">
                 {formatarNumero(alocado, 4)}{" "}
                 <span className="text-sm text-apple-secondary">
-                  / {formatarNumero(total, 4)} m³
+                  / {formatarNumero(total, 4)} {unidade}
                 </span>
               </p>
               <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-primary-muted">
@@ -527,7 +529,7 @@ export function DofAlocacaoPage() {
             <CardContent className="flex min-h-[124px] flex-col justify-between">
               <p className="text-sm text-apple-secondary">Saldo Disponível</p>
               <p className="text-2xl font-semibold text-primary">
-                {formatarNumero(saldo, 4)} m³
+                {formatarNumero(saldo, 4)} {unidade}
               </p>
               <p className="text-xs text-apple-secondary mt-1">
                 {dof.origem || "—"} → {dof.destino || "—"}
@@ -610,7 +612,7 @@ export function DofAlocacaoPage() {
                     Saldo do item
                   </p>
                   <p className="mt-1 font-mono text-sm font-semibold text-apple-dark">
-                    {formatarNumero(maxVolumeItemSelecionado, 4)} m³
+                    {formatarNumero(maxVolumeItemSelecionado, 4)} {unidade}
                   </p>
                 </div>
                 <div className="rounded-lg border border-primary-muted p-2.5">
@@ -619,7 +621,7 @@ export function DofAlocacaoPage() {
                   </p>
                   <p className="mt-1 font-mono text-sm font-semibold text-apple-dark">
                     {Number.isFinite(maxVolumeLoteSelecionado)
-                      ? `${formatarNumero(maxVolumeLoteSelecionado, 4)} m³`
+                      ? `${formatarNumero(maxVolumeLoteSelecionado, 4)} ${unidade}`
                       : "Ilimitado"}
                   </p>
                 </div>
@@ -631,7 +633,7 @@ export function DofAlocacaoPage() {
                   </p>
                   <p className="mt-1 font-mono text-sm font-semibold text-apple-dark">
                     {modoAlocacao === "VOLUME"
-                      ? `${formatarNumero(volumeAlocacaoAtual, 4)} m³`
+                      ? `${formatarNumero(volumeAlocacaoAtual, 4)} ${unidade}`
                       : totalPecas}
                   </p>
                 </div>
@@ -640,7 +642,7 @@ export function DofAlocacaoPage() {
                     Volume calculado
                   </p>
                   <p className="mt-1 font-mono text-sm font-semibold text-apple-dark">
-                    {formatarNumero(volumeAlocacaoAtual, 4)} m³
+                    {formatarNumero(volumeAlocacaoAtual, 4)} {unidade}
                   </p>
                 </div>
                 <div className="rounded-lg border border-primary-muted p-2.5">
@@ -648,7 +650,7 @@ export function DofAlocacaoPage() {
                     Máximo permitido
                   </p>
                   <p className="mt-1 font-mono text-sm font-semibold text-apple-dark">
-                    {formatarNumero(maxVolumePermitido, 4)} m³
+                    {formatarNumero(maxVolumePermitido, 4)} {unidade}
                   </p>
                 </div>
               </div>
@@ -663,7 +665,7 @@ export function DofAlocacaoPage() {
                     onChange={(value) => setAlocarDofItemId(String(value))}
                     options={itensComSaldo.map((item) => ({
                       value: item.id,
-                      label: `${formatarItemDof(item)} (saldo: ${formatarNumero(item.quantidade_disponivel, 4)} m³)`,
+                      label: `${formatarItemDof(item)} (saldo: ${formatarNumero(item.quantidade_disponivel, 4)} ${unidade})`,
                     }))}
                     placeholder="Selecione..."
                     searchPlaceholder="Buscar item do DOF..."
@@ -682,7 +684,7 @@ export function DofAlocacaoPage() {
                       const semEspaco = getLoteDisponivel(lote) <= 0;
                       return {
                         value: lote.id,
-                        label: `${formatarOpcaoLote(lote)}${semEspaco ? " (sem espaço)" : ""}`,
+                        label: `${formatarOpcaoLote(lote, unidade)}${semEspaco ? " (sem espaço)" : ""}`,
                         disabled: semEspaco,
                       };
                     })}
@@ -727,7 +729,7 @@ export function DofAlocacaoPage() {
                           resumoItemSelecionado.total_volume_m3,
                           4,
                         )}{" "}
-                        m³
+                        {unidade}
                       </p>
                     </div>
                   </div>
@@ -749,7 +751,7 @@ export function DofAlocacaoPage() {
                               Peças
                             </th>
                             <th className="px-2 py-1.5 text-right font-medium uppercase tracking-wide">
-                              Volume (m³)
+                              Volume ({unidade})
                             </th>
                           </tr>
                         </thead>
@@ -780,7 +782,7 @@ export function DofAlocacaoPage() {
                   <Input
                     type="text"
                     inputMode="decimal"
-                    label="Volume (m³) *"
+                    label={`Volume (${unidade}) *`}
                     value={volumeNoPecas}
                     onChange={(e) => setVolumeNoPecas(e.target.value)}
                     placeholder="Ex.: 12,5000"
@@ -908,17 +910,17 @@ export function DofAlocacaoPage() {
                   <>
                     Saldo:{" "}
                     <span className="font-mono">
-                      {formatarNumero(maxVolumeItemSelecionado, 4)} m³
+                      {formatarNumero(maxVolumeItemSelecionado, 4)} {unidade}
                     </span>
                     {" | "}
                     Calculado:{" "}
                     <span className="font-mono">
-                      {formatarNumero(volumeAlocacaoAtual, 4)} m³
+                      {formatarNumero(volumeAlocacaoAtual, 4)} {unidade}
                     </span>
                     {" | "}
                     Máximo no lote:{" "}
                     <span className="font-mono">
-                      {formatarNumero(maxVolumePermitido, 4)} m³
+                      {formatarNumero(maxVolumePermitido, 4)} {unidade}
                     </span>
                   </>
                 ) : (
@@ -946,7 +948,7 @@ export function DofAlocacaoPage() {
                   {" | "}
                   Volume em peças:{" "}
                   <span className="font-mono">
-                    {formatarNumero(alocacoesResumo.total_volume_m3, 4)} m³
+                    {formatarNumero(alocacoesResumo.total_volume_m3, 4)} {unidade}
                   </span>
                 </p>
               </div>
@@ -1021,7 +1023,7 @@ export function DofAlocacaoPage() {
                           {descreverMovimentacaoLote(mov)}
                         </p>
                         <p className="text-xs text-apple-secondary mt-1">
-                          Volume: {formatarNumero(mov.volume_m3, 4)} m³
+                          Volume: {formatarNumero(mov.volume_m3, 4)} {unidade}
                         </p>
                         {notasFiscais && (
                           <p className="text-xs text-apple-secondary mt-1">

@@ -13,6 +13,7 @@ import {
 import type { LoteResumo } from "../services/PatioService";
 import type { Dof, DofLote, DofLoteResumoProduto } from "../types";
 import { formatarNumero } from "../utils/format";
+import { obterUnidadeDof } from "../utils/unidadeMedida";
 import { toastUtils } from "../utils/toast";
 
 const ACOES_VALIDAS = ["transferir", "baixar"] as const;
@@ -27,17 +28,17 @@ function getLoteDisponivel(lote: LoteResumo): number {
     : Number.POSITIVE_INFINITY;
 }
 
-function formatarOpcaoLote(lote: LoteResumo) {
+function formatarOpcaoLote(lote: LoteResumo, unidade: string) {
   const ocupado = Number(lote.volume_ocupado || 0);
   const capacidade = Number(lote.capacidade_volume || 0);
   const temCapacidade = Number.isFinite(capacidade) && capacidade > 0;
   const disponivel = temCapacidade ? Math.max(0, capacidade - ocupado) : null;
 
   const sufixoDisponivel = temCapacidade
-    ? `disp: ${formatarNumero(disponivel ?? 0, 2)} m³`
+    ? `disp: ${formatarNumero(disponivel ?? 0, 2)} ${unidade}`
     : "disp: ilimitado";
 
-  return `${lote.nome} — ${lote.patio_nome} (ocup: ${formatarNumero(ocupado, 2)} m³ | ${sufixoDisponivel})`;
+  return `${lote.nome} — ${lote.patio_nome} (ocup: ${formatarNumero(ocupado, 2)} ${unidade} | ${sufixoDisponivel})`;
 }
 
 function extrairProdutosResumo(
@@ -305,6 +306,8 @@ export function DofAlocacaoOperacaoPage() {
     );
   }
 
+  const unidade = obterUnidadeDof(dof);
+
   const tituloAcao =
     acaoAtual === "transferir"
       ? "Transferir alocação"
@@ -372,7 +375,7 @@ export function DofAlocacaoOperacaoPage() {
                   Volume disponível
                 </p>
                 <p className="mt-1 text-lg font-semibold text-apple-dark font-mono">
-                  {formatarNumero(alocacao.volume_m3, 4)} m³
+                  {formatarNumero(alocacao.volume_m3, 4)} {unidade}
                 </p>
               </div>
             </CardContent>
@@ -396,7 +399,7 @@ export function DofAlocacaoOperacaoPage() {
                         const semEspaco = getLoteDisponivel(lote) <= 0;
                         return {
                           value: lote.id,
-                          label: `${formatarOpcaoLote(lote)}${semEspaco ? " (sem espaço)" : ""}`,
+                          label: `${formatarOpcaoLote(lote, unidade)}${semEspaco ? " (sem espaço)" : ""}`,
                           disabled: semEspaco,
                         };
                       })}
@@ -467,21 +470,21 @@ export function DofAlocacaoOperacaoPage() {
                         calculadoPecas.totalVolumeSelecionado,
                         4,
                       )}{" "}
-                      m³
+                      {unidade}
                     </span>
                   </p>
                 </div>
               ) : (
                 <div>
                   <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-apple-secondary">
-                    Volume (m³)
+                    Volume ({unidade})
                   </label>
                   <input
                     type="text"
                     value={volume}
                     onChange={(e) => setVolume(e.target.value)}
                     className="h-10 w-full rounded-lg border border-primary-muted px-3 text-sm"
-                    placeholder="Volume m³"
+                    placeholder={`Volume ${unidade}`}
                   />
                 </div>
               )}

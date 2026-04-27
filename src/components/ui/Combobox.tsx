@@ -21,6 +21,8 @@ interface ComboboxProps {
   value?: string | number;
   onChange: (value: string | number) => void;
   placeholder?: string;
+  label?: string;
+  id?: string;
   searchPlaceholder?: string;
   emptyMessage?: string;
   disabled?: boolean;
@@ -55,6 +57,8 @@ export function Combobox({
   value,
   onChange,
   placeholder = "Selecione...",
+  label,
+  id,
   searchPlaceholder = "Buscar...",
   emptyMessage = "Nenhum resultado encontrado.",
   disabled = false,
@@ -66,6 +70,8 @@ export function Combobox({
   const [search, setSearch] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const comboboxId = id || label?.toLowerCase().replace(/\s/g, "-");
+  const labelId = comboboxId ? `${comboboxId}-label` : undefined;
 
   const [dropdownPosition, setDropdownPosition] = useState<"top" | "bottom">(
     "bottom",
@@ -203,7 +209,20 @@ export function Combobox({
   return (
     <>
       <div ref={containerRef} className={`relative w-full ${className}`}>
+        {label && (
+          <label
+            id={labelId}
+            className="block text-sm font-medium text-apple-dark mb-1.5"
+          >
+            {label}
+          </label>
+        )}
         <div
+          id={comboboxId}
+          role="combobox"
+          aria-expanded={isOpen}
+          aria-disabled={disabled}
+          aria-labelledby={labelId}
           className={`
             relative flex items-center w-full h-10 px-3 text-sm text-left bg-white border rounded-lg cursor-pointer
             ${disabled ? "bg-primary-muted cursor-not-allowed text-apple-dark font-medium" : "hover:bg-apple-gray text-apple-dark"}

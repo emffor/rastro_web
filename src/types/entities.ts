@@ -41,6 +41,7 @@ export interface Dof {
   valido_ate: string;
   volume_total: number;
   volume_saldo_m3: number;
+  unidade_medida?: string;
   origem: string | null;
   destino: string | null;
   nota_fiscal: string | null;
@@ -198,6 +199,7 @@ export interface Movimentacao {
   lote_destino_id: string | null;
   tipo: "ENTRADA" | "TRANSFERENCIA" | "BAIXA" | "AJUSTE";
   volume_m3: number;
+  unidade_medida?: string;
   resumo_produtos?: Array<{
     produto_dimensionado_id?: string | null;
     produto_codigo?: string | null;

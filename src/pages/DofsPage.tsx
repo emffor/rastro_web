@@ -244,7 +244,7 @@ export function DofsPage() {
       },
       {
         key: "volume",
-        header: "Volume (m³)",
+        header: "Volume",
         render: (d: Dof) => {
           const _total = Number(d.volume_total);
           const saldo = Number(d.volume_saldo_m3);
